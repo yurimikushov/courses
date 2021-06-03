@@ -1,4 +1,3 @@
-import React from 'react'
 import cn from 'classnames'
 import { HeadingProps } from './Heading.props'
 import styles from './Heading.module.css'
