@@ -17,7 +17,7 @@ const Label = ({
       [styles.s]: size === 's',
       [styles.primary]: color === 'primary',
       [styles.ghost]: color === 'ghost',
-      [styles.grey]: color === 'grey',
+      [styles.gray]: color === 'gray',
       [styles.green]: color === 'green',
       [styles.hh]: color === 'hh',
     })}

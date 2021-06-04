@@ -31,7 +31,7 @@
   font-weight: initial;
 }
 
-.grey {
+.gray {
   color: var(--color-white);
   background-color: var(--color-gray);
 }

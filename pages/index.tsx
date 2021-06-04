@@ -10,7 +10,7 @@ const Home = (): JSX.Element => (
     <P size='s'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, ipsam.</P>
     <Label color='primary'>Primary</Label>
     <Label size='m'>Ghost</Label>
-    <Label size='s' color='grey'>Grey</Label>
+    <Label size='s' color='gray'>gray</Label>
     <Label size='s' color='green'>Green</Label>
     <Label href='https://hh.ru' size='m' color='hh'>hh.ru</Label>
   </>
