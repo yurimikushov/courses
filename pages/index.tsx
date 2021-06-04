@@ -1,9 +1,10 @@
 import { useState } from 'react'
-import { Heading, P, Label, Button } from '../components'
+import { Heading, P, Label, Button, Rating } from '../components'
 
 const Home = (): JSX.Element => {
   const [primaryArrowDown, setPrimaryArrowDown] = useState<boolean>(true)
   const [ghostArrowDown, setGhostArrowRight] = useState<boolean>(false)
+  const [rating, setRating] = useState<number>(2)
 
   return (
     <>
@@ -56,6 +57,10 @@ const Home = (): JSX.Element => {
         >
           Ghost arrow
         </Button>
+      </div>
+      <div className='rating'>
+        <Rating className='static-rating' rating={4} />
+        <Rating className='editable-rating' rating={rating} editable={true} setRating={setRating} />
       </div>
     </>
   )

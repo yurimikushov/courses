@@ -1,0 +1,19 @@
+.star {
+  display: inline-block;
+
+  padding: 3px;
+}
+
+.star.editable {
+  cursor: pointer;
+}
+
+.starIcon {
+  display: block;
+
+  fill: var(--color-gray-light);
+}
+
+.starIcon.filled {
+  fill: var(--color-primary);
+}
