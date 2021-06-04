@@ -1,4 +1,4 @@
-import { Heading, P } from '../components'
+import { Heading, P, Label } from '../components'
 
 const Home = (): JSX.Element => (
   <>
@@ -8,6 +8,11 @@ const Home = (): JSX.Element => (
     <P size='l'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, ipsam.</P>
     <P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, ipsam.</P>
     <P size='s'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, ipsam.</P>
+    <Label color='primary'>Primary</Label>
+    <Label size='m'>Ghost</Label>
+    <Label size='s' color='grey'>Grey</Label>
+    <Label size='s' color='green'>Green</Label>
+    <Label href='https://hh.ru' size='m' color='hh'>hh.ru</Label>
   </>
 )
 
