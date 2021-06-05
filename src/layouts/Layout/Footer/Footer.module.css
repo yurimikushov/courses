@@ -16,7 +16,7 @@
 @media (max-width: 768px) {
   .footer {
     grid-template-columns: auto;
-    
+
     text-align: center;
   }
 }
