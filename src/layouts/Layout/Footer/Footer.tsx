@@ -3,7 +3,7 @@ import { FooterProps } from './Footer.props'
 import styles from './Footer.module.css'
 
 const Footer = ({ className, ...props }: FooterProps): JSX.Element => (
-  <div className={cn(styles.footer, className)} {...props}>Footer</div>
+  <div className={cn(className, styles.footer)} {...props}>Footer</div>
 )
 
 export { Footer }
