@@ -9,7 +9,7 @@ interface HomeProps extends Record<string, unknown> {
   menu: IMenuItem[]
 }
 
-const Home = ({ menu }: HomeProps): JSX.Element => {
+const HomePage = ({ menu }: HomeProps): JSX.Element => {
   const [primaryArrowDown, setPrimaryArrowDown] = useState<boolean>(true)
   const [ghostArrowDown, setGhostArrowRight] = useState<boolean>(false)
   const [rating, setRating] = useState<number>(2)
@@ -92,5 +92,5 @@ const getStaticProps: GetStaticProps<HomeProps> = async () => {
   }
 }
 
-export default withLayout(Home)
+export default withLayout(HomePage)
 export { getStaticProps }
