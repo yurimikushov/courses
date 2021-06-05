@@ -32,7 +32,7 @@ const Rating = ({
   }
 
   const onKeyUp = (keyCode: string, rating: number): void => {
-    if (editable && setRating && keyCode === 'Space') {
+    if (editable && setRating && keyCode === 'Enter') {
       setRating(rating)
     }
   }
