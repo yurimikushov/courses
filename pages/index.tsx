@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { withLayout } from '../layouts'
 import { Heading, P, Label, Button, Rating } from '../components'
 
 const Home = (): JSX.Element => {
@@ -66,4 +67,4 @@ const Home = (): JSX.Element => {
   )
 }
 
-export default Home
+export default withLayout(Home)
