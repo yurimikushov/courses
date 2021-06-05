@@ -1,8 +1,15 @@
+import { GetStaticProps } from 'next'
 import { useState } from 'react'
+import { fetchMenu } from '../api'
+import { IMenuItem } from '../interfaces'
 import { withLayout } from '../layouts'
 import { Heading, P, Label, Button, Rating } from '../components'
 
-const Home = (): JSX.Element => {
+interface HomeProps extends Record<string, unknown> {
+  menu: IMenuItem[]
+}
+
+const Home = ({ menu }: HomeProps): JSX.Element => {
   const [primaryArrowDown, setPrimaryArrowDown] = useState<boolean>(true)
   const [ghostArrowDown, setGhostArrowRight] = useState<boolean>(false)
   const [rating, setRating] = useState<number>(2)
@@ -61,10 +68,29 @@ const Home = (): JSX.Element => {
       </div>
       <div className='rating'>
         <Rating className='static-rating' rating={4} />
-        <Rating className='editable-rating' rating={rating} editable={true} setRating={setRating} />
+        <Rating
+          className='editable-rating'
+          rating={rating}
+          editable={true}
+          setRating={setRating}
+        />
       </div>
+      <pre className='menu-data' style={{ whiteSpace: 'pre-wrap' }}>
+        {JSON.stringify(menu, null, 2)}
+      </pre>
     </>
   )
 }
 
+const getStaticProps: GetStaticProps<HomeProps> = async () => {
+  const menu: IMenuItem[] = await fetchMenu()
+
+  return {
+    props: {
+      menu,
+    },
+  }
+}
+
 export default withLayout(Home)
+export { getStaticProps }
