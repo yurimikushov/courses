@@ -11,6 +11,7 @@
 
 .footer a:hover {
   color: var(--color-gray-light);
+  text-decoration: underline;
 }
 
 @media (max-width: 768px) {
