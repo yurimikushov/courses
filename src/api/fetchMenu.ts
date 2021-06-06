@@ -1,10 +1,11 @@
-import axios from "axios"
-import { API, FIRST_CATEGORY_ID } from "../constants"
-import { IMenuItem } from "../interfaces"
+import axios from 'axios'
+import { TopLevelCategory } from '../enums'
+import { IMenuItem } from '../interfaces'
+import { API } from '../constants'
 
 const fetchMenu = async (): Promise<IMenuItem[]> => {
   const { data: menu } = await axios.post<IMenuItem[]>(API.topPage.find, {
-    firstCategory: FIRST_CATEGORY_ID,
+    firstCategory: TopLevelCategory.Courses,
   })
 
   return menu
