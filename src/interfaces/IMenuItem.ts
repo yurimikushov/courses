@@ -1,4 +1,7 @@
-interface PageItem {
+import { FunctionComponent } from 'react'
+import { TopLevelCategory } from '../enums'
+
+interface IPageItem {
   _id: string
   alias: string
   title: string
@@ -9,7 +12,14 @@ interface IMenuItem {
   _id: {
     secondCategory: string
   }
-  pages: PageItem[]
+  pages: IPageItem[]
 }
 
-export type { IMenuItem }
+interface IFirstLevelMenuItem {
+  id: TopLevelCategory
+  name: string
+  route: string
+  Icon: FunctionComponent
+}
+
+export type { IMenuItem, IFirstLevelMenuItem, IPageItem }
