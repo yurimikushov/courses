@@ -1,5 +1,5 @@
-import { TopLevelCategory } from '../../../enums'
-import { IFirstLevelMenuItem } from '../../../interfaces'
+import { TopLevelCategory } from '../../enums'
+import { IFirstLevelMenuItem } from '../../interfaces'
 import CoursesIcon from './assets/courses.svg'
 import ServicesIcon from './assets/services.svg'
 import BooksIcon from './assets/books.svg'
