@@ -1,6 +1,6 @@
 import axios from 'axios'
-import { API } from '../constants'
 import { ITopPage } from '../interfaces'
+import { API } from '../constants'
 
 const fetchPageByAlias = async (alias: string): Promise<ITopPage> => {
   const { data: page } = await axios.get<ITopPage>(
