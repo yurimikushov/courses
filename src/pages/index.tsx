@@ -4,6 +4,7 @@ import { fetchMenu } from '../api'
 import { IMenuItem } from '../interfaces'
 import { withLayout } from '../layouts'
 import { Heading, P, Label, Button, Rating } from '../components'
+import { TopLevelCategory } from '../enums'
 
 interface HomeProps extends Record<string, unknown> {
   menu: IMenuItem[]
@@ -83,7 +84,7 @@ const HomePage = ({ menu }: HomeProps): JSX.Element => {
 }
 
 const getStaticProps: GetStaticProps<HomeProps> = async () => {
-  const menu: IMenuItem[] = await fetchMenu()
+  const menu: IMenuItem[] = await fetchMenu(TopLevelCategory.Courses)
 
   return {
     props: {
