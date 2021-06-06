@@ -22,6 +22,8 @@
 }
 
 html {
+  color: var(--color-black);
+
   font-family: var(--font-family);
   font-size: var(--font-size);
 }
