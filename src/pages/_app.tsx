@@ -15,7 +15,6 @@ const App = ({ Component, pageProps }: AppProps): JSX.Element => (
       />
     </Head>
     <AppContextProvider
-      firstCategory={pageProps.firstCategory}
       menu={pageProps.menu}
     >
       <Component {...pageProps} />
