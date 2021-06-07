@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import type { AppProps } from 'next/app'
 import './globals.css'
-import { AppContextProvider } from '../contexts/app'
+import { AppContextProvider } from '../contexts'
 
 const App = ({ Component, pageProps }: AppProps): JSX.Element => (
   <>
