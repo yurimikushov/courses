@@ -28,22 +28,22 @@ const getStaticProps: GetStaticProps = async ({
     }
   }
 
-  const firstLevelMenuItem = firstLevelMenuItems.find(
+  const activeMenuItem = firstLevelMenuItems.find(
     ({ route }) => route === params.type
   )
 
-  if (!firstLevelMenuItem) {
+  if (!activeMenuItem) {
     return {
       notFound: true,
     }
   }
 
-  const menu = await fetchMenu(firstLevelMenuItem.id)
+  const menu = await fetchMenu(activeMenuItem.id)
 
   return {
     props: {
       menu,
-      openedFirstLevelMenuItem: firstLevelMenuItem.id,
+      activeFirstLevelMenu: activeMenuItem.id,
       type: params.type,
     },
   }
