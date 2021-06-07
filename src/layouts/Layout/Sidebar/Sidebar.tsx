@@ -14,6 +14,11 @@ const Sidebar = ({ className, ...props }: SidebarProps): JSX.Element => (
         </a>
       </Link>
     </div>
+    <div>
+      <Link href='/search'>
+        <a>Поиск</a>
+      </Link>
+    </div>
     <Menu />
   </div>
 )
