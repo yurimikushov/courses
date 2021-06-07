@@ -45,7 +45,17 @@ const getStaticProps: GetStaticProps<TopPageProps> = async ({
     }
   }
 
-  const menu: IMenuItem[] = await fetchMenu(TopLevelCategory.Courses)
+  const activeMenuItem = firstLevelMenuItems.find(
+    ({ route }) => route === params.type
+  )
+
+  if (!activeMenuItem) {
+    return {
+      notFound: true,
+    }
+  }
+
+  const menu: IMenuItem[] = await fetchMenu(activeMenuItem.id)
   const page: ITopPage = await fetchPageByAlias(params.alias as string)
   const products: IProduct[] = await fetchProducts(page.category)
 
