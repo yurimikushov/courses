@@ -15,7 +15,7 @@ const App = ({ Component, pageProps }: AppProps): JSX.Element => (
       />
     </Head>
     <AppContextProvider
-      menu={pageProps.menu}
+      {...pageProps}
     >
       <Component {...pageProps} />
     </AppContextProvider>
