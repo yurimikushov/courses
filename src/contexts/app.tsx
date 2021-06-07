@@ -1,4 +1,4 @@
-import { createContext, PropsWithChildren, useState } from 'react'
+import { createContext, PropsWithChildren, useState, useEffect } from 'react'
 import { IMenuItem } from '../interfaces'
 
 interface IAppContext {
@@ -16,9 +16,9 @@ const AppContextProvider = ({
 }: PropsWithChildren<IAppContext>): JSX.Element => {
   const [menuState, setMenuState] = useState<IMenuItem[]>(menu)
 
-  if(!menu) {
-    console.trace('is undefined')
-  }
+  useEffect(() => {
+    setMenuState(menu)
+  }, [menu])
 
   const setMenu = (menu: IMenuItem[]) => {
     setMenuState(menu)
