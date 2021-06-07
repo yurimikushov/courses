@@ -1,3 +1,5 @@
-export type { IMenuItem, IFirstLevelMenuItem, IPageItem } from './IMenuItem'
+export type { IFirstLevelMenuItem } from './IFirstLevelMenuItem'
+export type { IMenuItem } from './IMenuItem'
+export type { IPageItem } from './IPageItem'
 export type { ITopPage } from './ITopPage'
 export type { IProduct } from './IProduct'
