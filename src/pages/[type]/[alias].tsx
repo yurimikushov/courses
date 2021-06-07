@@ -1,7 +1,7 @@
 import { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from 'next'
 import { ParsedUrlQuery } from 'querystring'
 import { fetchMenu, fetchPageByAlias, fetchProducts } from '../../api'
-import { TopLevelCategory } from '../../enums'
+import { firstLevelMenuItems } from '../../constants'
 import { IMenuItem, ITopPage, IProduct } from '../../interfaces'
 import { withLayout } from '../../layouts'
 
@@ -18,11 +18,17 @@ const TopPage = ({ products }: TopPageProps): JSX.Element => (
 )
 
 const getStaticPaths: GetStaticPaths = async () => {
-  const menu: IMenuItem[] = await fetchMenu(TopLevelCategory.Courses)
+  let paths: string[] = []
 
-  const paths = menu.flatMap((item: IMenuItem) =>
-    item.pages.map((page) => `/courses/${page.alias}`)
-  )
+  for (const { id, route } of firstLevelMenuItems) {
+    const menu = await fetchMenu(id)
+
+    paths = paths.concat(
+      menu.flatMap(({ pages }) =>
+        pages.map(({ alias }) => `/${route}/${alias}`)
+      )
+    )
+  }
 
   return {
     paths,
