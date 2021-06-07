@@ -64,6 +64,7 @@ const getStaticProps: GetStaticProps<TopPageProps> = async ({
       menu,
       page,
       products,
+      activeFirstLevelMenu: activeMenuItem.id,
     },
   }
 }
