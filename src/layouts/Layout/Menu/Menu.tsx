@@ -42,13 +42,13 @@ const Menu = (): JSX.Element => {
               </div>
             </a>
           </Link>
-          {id === activeFirstLevelMenu && createSecondLevel()}
+          {id === activeFirstLevelMenu && createSecondLevel(route)}
         </li>
       ))}
     </ul>
   )
 
-  const createSecondLevel = () => {
+  const createSecondLevel = (route: string) => {
     if (menu.length === 0) {
       return null
     }
@@ -63,14 +63,14 @@ const Menu = (): JSX.Element => {
             >
               {_id.secondCategory}
             </div>
-            {isOpen && createThirdLevel(pages)}
+            {isOpen && createThirdLevel(route, pages)}
           </li>
         ))}
       </ul>
     )
   }
 
-  const createThirdLevel = (pages: IPageItem[]) => {
+  const createThirdLevel = (route: string, pages: IPageItem[]) => {
     if (pages.length === 0) {
       return null
     }
@@ -79,7 +79,9 @@ const Menu = (): JSX.Element => {
       <ul>
         {pages.map((page) => (
           <li key={page.category} className={styles.thirdLevelMenuItem}>
-            {page.category}
+            <Link href={`/${route}/${page.alias}`}>
+              <a>{page.category}</a>
+            </Link>
           </li>
         ))}
       </ul>
