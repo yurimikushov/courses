@@ -7,7 +7,23 @@ import { IPageItem } from '../../../interfaces'
 import styles from './Menu.module.css'
 
 const Menu = (): JSX.Element => {
-  const { menu, activeFirstLevelMenu } = useContext(AppContext)
+  const { menu, setMenu, activeFirstLevelMenu } = useContext(AppContext)
+
+  const openSecondLevelMenu = (secondCategory: string): void => {
+    if (!setMenu) {
+      return
+    }
+
+    setMenu(
+      menu.map((menuItem) => {
+        if (menuItem._id.secondCategory === secondCategory) {
+          menuItem.isOpen = !menuItem.isOpen
+        }
+
+        return menuItem
+      })
+    )
+  }
 
   const createFirstLevel = () => (
     <ul>
@@ -39,12 +55,15 @@ const Menu = (): JSX.Element => {
 
     return (
       <ul className={styles.secondLevelMenuBox}>
-        {menu.map(({ _id, pages }) => (
+        {menu.map(({ _id, pages, isOpen }) => (
           <li key={_id.secondCategory}>
-            <div className={styles.secondLevelMenuItem}>
+            <div
+              className={styles.secondLevelMenuItem}
+              onClick={() => openSecondLevelMenu(_id.secondCategory)}
+            >
               {_id.secondCategory}
             </div>
-            {createThirdLevel(pages)}
+            {isOpen && createThirdLevel(pages)}
           </li>
         ))}
       </ul>

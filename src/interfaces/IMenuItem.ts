@@ -5,6 +5,7 @@ interface IMenuItem {
     secondCategory: string
   }
   pages: IPageItem[]
+  isOpen?: boolean
 }
 
 export type { IMenuItem }
