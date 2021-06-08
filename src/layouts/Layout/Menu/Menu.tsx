@@ -1,10 +1,12 @@
 import { useContext } from 'react'
+import { useRouter } from 'next/router'
 import Link from 'next/link'
 import cn from 'classnames'
 import { AppContext } from '../../../contexts'
 import { IPageItem } from '../../../interfaces'
-import styles from './Menu.module.css'
 import { firstLevelMenuItems } from '../../../constants'
+import { isCurrentPage } from '../../../utils'
+import styles from './Menu.module.css'
 
 interface SecondLevelMenuProps {
   route: string
@@ -16,7 +18,7 @@ interface ThirdLevelMenuProps {
 }
 
 const Menu = (): JSX.Element => {
-  const { menu, setMenu, activeFirstLevelMenu } = useContext(AppContext)
+  const { activeFirstLevelMenu } = useContext(AppContext)
 
   const FirstLevelMenu = (): JSX.Element => (
     <ul>
@@ -41,6 +43,9 @@ const Menu = (): JSX.Element => {
     </ul>
   )
 
+  const { menu, setMenu } = useContext(AppContext)
+  const { query } = useRouter()
+
   const SecondLevelMenu = ({
     route,
   }: SecondLevelMenuProps): JSX.Element | null => {
@@ -63,17 +68,21 @@ const Menu = (): JSX.Element => {
 
     return (
       <ul className={styles.secondLevelMenuBox}>
-        {menu.map(({ _id, pages, isOpen }) => (
-          <li key={_id.secondCategory}>
-            <div
-              className={styles.secondLevelMenuItem}
-              onClick={() => openMenu(_id.secondCategory)}
-            >
-              {_id.secondCategory}
-            </div>
-            {isOpen && <ThirdLevelMenu route={route} pages={pages} />}
-          </li>
-        ))}
+        {menu.map(({ _id, pages, isOpen }) => {
+          isOpen = isOpen || isCurrentPage(query.alias as string, pages)
+
+          return (
+            <li key={_id.secondCategory}>
+              <div
+                className={styles.secondLevelMenuItem}
+                onClick={() => openMenu(_id.secondCategory)}
+              >
+                {_id.secondCategory}
+              </div>
+              {isOpen && <ThirdLevelMenu route={route} pages={pages} />}
+            </li>
+          )
+        })}
       </ul>
     )
   }
@@ -88,10 +97,10 @@ const Menu = (): JSX.Element => {
 
     return (
       <ul>
-        {pages.map((page) => (
-          <li key={page.category} className={styles.thirdLevelMenuItem}>
-            <Link href={`/${route}/${page.alias}`}>
-              <a>{page.category}</a>
+        {pages.map(({ category, alias }) => (
+          <li key={category} className={styles.thirdLevelMenuItem}>
+            <Link href={`/${route}/${alias}`}>
+              <a>{category}</a>
             </Link>
           </li>
         ))}
