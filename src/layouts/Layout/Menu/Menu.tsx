@@ -1,31 +1,24 @@
 import { useContext } from 'react'
 import Link from 'next/link'
 import cn from 'classnames'
-import { firstLevelMenuItems } from '../../../constants'
 import { AppContext } from '../../../contexts'
 import { IPageItem } from '../../../interfaces'
 import styles from './Menu.module.css'
+import { firstLevelMenuItems } from '../../../constants'
+
+interface SecondLevelMenuProps {
+  route: string
+}
+
+interface ThirdLevelMenuProps {
+  route: string
+  pages: IPageItem[]
+}
 
 const Menu = (): JSX.Element => {
   const { menu, setMenu, activeFirstLevelMenu } = useContext(AppContext)
 
-  const openSecondLevelMenu = (secondCategory: string): void => {
-    if (!setMenu) {
-      return
-    }
-
-    setMenu(
-      menu.map((menuItem) => {
-        if (menuItem._id.secondCategory === secondCategory) {
-          menuItem.isOpen = !menuItem.isOpen
-        }
-
-        return menuItem
-      })
-    )
-  }
-
-  const createFirstLevel = () => (
+  const FirstLevelMenu = (): JSX.Element => (
     <ul>
       {firstLevelMenuItems.map(({ id, name, route, Icon }) => (
         <li key={id}>
@@ -42,15 +35,30 @@ const Menu = (): JSX.Element => {
               </div>
             </a>
           </Link>
-          {id === activeFirstLevelMenu && createSecondLevel(route)}
+          {id === activeFirstLevelMenu && <SecondLevelMenu route={route} />}
         </li>
       ))}
     </ul>
   )
 
-  const createSecondLevel = (route: string) => {
+  const SecondLevelMenu = ({
+    route,
+  }: SecondLevelMenuProps): JSX.Element | null => {
     if (menu.length === 0) {
       return null
+    }
+
+    const openMenu = (secondCategory: string): void => {
+      setMenu &&
+        setMenu(
+          menu.map((menuItem) => {
+            if (menuItem._id.secondCategory === secondCategory) {
+              menuItem.isOpen = !menuItem.isOpen
+            }
+
+            return menuItem
+          })
+        )
     }
 
     return (
@@ -59,18 +67,21 @@ const Menu = (): JSX.Element => {
           <li key={_id.secondCategory}>
             <div
               className={styles.secondLevelMenuItem}
-              onClick={() => openSecondLevelMenu(_id.secondCategory)}
+              onClick={() => openMenu(_id.secondCategory)}
             >
               {_id.secondCategory}
             </div>
-            {isOpen && createThirdLevel(route, pages)}
+            {isOpen && <ThirdLevelMenu route={route} pages={pages} />}
           </li>
         ))}
       </ul>
     )
   }
 
-  const createThirdLevel = (route: string, pages: IPageItem[]) => {
+  const ThirdLevelMenu = ({
+    route,
+    pages,
+  }: ThirdLevelMenuProps): JSX.Element | null => {
     if (pages.length === 0) {
       return null
     }
@@ -88,7 +99,11 @@ const Menu = (): JSX.Element => {
     )
   }
 
-  return <nav className={cn(styles.menu)}>{createFirstLevel()}</nav>
+  return (
+    <nav className={cn(styles.menu)}>
+      <FirstLevelMenu />
+    </nav>
+  )
 }
 
 export { Menu }
