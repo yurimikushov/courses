@@ -98,7 +98,12 @@ const Menu = (): JSX.Element => {
     return (
       <ul>
         {pages.map(({ category, alias }) => (
-          <li key={category} className={styles.thirdLevelMenuItem}>
+          <li
+            key={category}
+            className={cn(styles.thirdLevelMenuItem, {
+              [styles.activeThirdLevelMenuItem]: alias === query.alias,
+            })}
+          >
             <Link href={`/${route}/${alias}`}>
               <a>{category}</a>
             </Link>
