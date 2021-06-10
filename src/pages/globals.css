@@ -5,13 +5,14 @@
 }
 
 :root {
+  --color-primary: #7351f5;
+  --color-primary-hover: #6344df;
+  --color-white: white;
+  --color-white-blue: #f9f8ff;
   --color-black: #3b434e;
   --color-gray: #a4a4a4;
   --color-gray-light: #ebebeb;
   --color-gray-dark: #6c7077;
-  --color-white: white;
-  --color-primary: #7351f5;
-  --color-primary-hover: #6344df;
   --color-red: #fc836d;
   --color-red-light: #fea291;
   --color-green: #1dc37e;
