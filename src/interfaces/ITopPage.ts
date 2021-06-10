@@ -1,18 +1,10 @@
 import { TopLevelCategory } from '../enums'
+import { IHHData } from './IHHData'
 
-interface TopPageAdvantage {
+interface ITopPageAdvantage {
   _id: string
   title: string
   description: string
-}
-
-interface HhData {
-  _id: string
-  count: number
-  juniorSalary: number
-  middleSalary: number
-  seniorSalary: number
-  updatedAt: Date
 }
 
 interface ITopPage {
@@ -27,10 +19,10 @@ interface ITopPage {
   metaTitle: string
   metaDescription: string
   firstCategory: TopLevelCategory
-  advantages?: TopPageAdvantage[]
+  advantages?: ITopPageAdvantage[]
   createdAt: Date
   updatedAt: Date
-  hh?: HhData
+  hh?: IHHData
 }
 
 export type { ITopPage }
