@@ -1,0 +1,89 @@
+.hh {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  gap: 30px;
+}
+
+.vacancies,
+.salaries {
+  padding: 20px;
+}
+
+.salaries {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  padding: 1.25rem;
+}
+
+.vacancies,
+.salary {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+}
+
+.salary:not(:last-child) {
+  border-right: 1px solid var(--color-gray-light);
+}
+
+.title {
+  text-align: center;
+
+  font-size: 1.25rem;
+  line-height: 1.6875rem;
+}
+
+.count {
+  text-align: center;
+
+  color: var(--color-primary);
+
+  font-size: 2.25rem;
+  font-weight: bold;
+  line-height: 3.0625rem;
+}
+
+.salaryAmount {
+  text-align: center;
+
+  font-size: 1.625rem;
+  font-weight: bold;
+  line-height: 2.1875rem;
+}
+
+.rating {
+  display: flex;
+  gap: 10px;
+}
+
+.filledStar circle {
+  fill: var(--color-red);
+}
+
+@media (max-width: 1200px) {
+  .hh {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 940px) {
+  .salaries {
+    display: grid;
+    grid-template-columns: 1fr;
+
+    padding: 0 1.25rem;
+  }
+
+  .salary {
+    padding: 1.25rem 0;
+  }
+
+  .salary:not(:last-child) {
+    border-right: none;
+    border-bottom: 1px solid var(--color-gray-light);
+  }
+}

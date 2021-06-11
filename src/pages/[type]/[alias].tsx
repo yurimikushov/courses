@@ -1,6 +1,7 @@
 import { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from 'next'
 import { ParsedUrlQuery } from 'querystring'
 import { fetchMenu, fetchPageByAlias, fetchProducts } from '../../api'
+import { Card, HHData } from '../../components'
 import { firstLevelMenuItems } from '../../constants'
 import { IMenuItem, ITopPage, IProduct } from '../../interfaces'
 import { withLayout } from '../../layouts'
@@ -11,9 +12,11 @@ interface TopPageProps extends Record<string, unknown> {
   products: IProduct[]
 }
 
-const TopPage = ({ products }: TopPageProps): JSX.Element => (
+const TopPage = ({ page, products }: TopPageProps): JSX.Element => (
   <pre className='products-data' style={{ whiteSpace: 'pre-wrap' }}>
-    {JSON.stringify(products, null, 2)}
+    {page && page.hh && <HHData {...page.hh} />}
+    <Card>{JSON.stringify(page, null, 2)}</Card>
+    <Card color='whiteBlue'>{JSON.stringify(products, null, 2)}</Card>
   </pre>
 )
 
