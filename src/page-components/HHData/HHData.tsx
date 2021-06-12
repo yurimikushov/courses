@@ -1,4 +1,4 @@
-import { Card } from '../Card/Card'
+import { Card } from '../../components'
 import { HHVacancies } from './HHVacancies/HHVacancies'
 import { HHSalary } from './HHSalary/HHSalary'
 import { HHDataProps } from './HHData.props'
