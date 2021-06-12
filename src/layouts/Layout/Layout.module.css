@@ -26,6 +26,10 @@
   margin: 0 5vw;
 }
 
+.body > * + * {
+  margin: 1rem 0;
+}
+
 .footer {
   grid-area: footer;
 }
