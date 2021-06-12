@@ -29,6 +29,10 @@ html {
   font-size: var(--font-size);
 }
 
+body {
+  background-color: var(--color-white-blue);
+}
+
 a {
   text-decoration: none;
 
