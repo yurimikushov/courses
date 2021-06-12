@@ -1,11 +1,6 @@
 import { TopLevelCategory } from '../enums'
+import { ITopPageAdvantage } from './ITopPageAdvantage'
 import { IHHData } from './IHHData'
-
-interface ITopPageAdvantage {
-  _id: string
-  title: string
-  description: string
-}
 
 interface ITopPage {
   tags: string[]
