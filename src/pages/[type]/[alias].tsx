@@ -2,7 +2,7 @@ import { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from 'next'
 import { ParsedUrlQuery } from 'querystring'
 import { fetchMenu, fetchPageByAlias, fetchProducts } from '../../api'
 import {
-  TopPageTitle,
+  TopPageHeader,
   HHData,
   Advantages,
   SeoText,
@@ -24,7 +24,7 @@ const TopPage = ({ page, products }: TopPageProps): JSX.Element => {
 
   return (
     <>
-      <TopPageTitle title={title} totalProducts={products.length} />
+      <TopPageHeader title={title} totalProducts={products.length} />
       {hh && <HHData {...hh} />}
       {advantages && advantages.length > 0 && (
         <Advantages advantages={advantages} />
