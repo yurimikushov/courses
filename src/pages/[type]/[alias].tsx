@@ -11,6 +11,7 @@ import { Card } from '../../components'
 import { firstLevelMenuItems } from '../../constants'
 import { IMenuItem, ITopPage, IProduct } from '../../interfaces'
 import { withLayout } from '../../layouts'
+import { cleanUpPageData } from '../../utils'
 
 interface TopPageProps extends Record<string, unknown> {
   menu: IMenuItem[]
@@ -82,7 +83,7 @@ const getStaticProps: GetStaticProps<TopPageProps> = async ({
   return {
     props: {
       menu,
-      page,
+      page: cleanUpPageData(page),
       products,
       activeFirstLevelMenu: activeMenuItem.id,
     },
