@@ -1,0 +1,27 @@
+.sortOption {
+  cursor: pointer;
+}
+
+.sortOption + .sortOption {
+  margin-left: 2.625rem;
+}
+
+.sortIcon {
+  display: none;
+
+  fill: var(--color-primary);
+}
+
+.title {
+  margin-left: 0.5rem;
+}
+
+.active {
+  color: var(--color-primary);
+
+  font-weight: bold;
+}
+
+.active .sortIcon {
+  display: initial;
+}
