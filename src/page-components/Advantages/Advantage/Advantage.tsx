@@ -11,4 +11,5 @@ const Advantage = ({ title, description }: AdvantageProps): JSX.Element => (
     {description && <P size='s'>{description}</P>}
   </div>
 )
+
 export { Advantage }
