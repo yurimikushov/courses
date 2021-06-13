@@ -1,10 +1,7 @@
-import { useReducer, useState } from 'react'
 import cn from 'classnames'
 import { Heading, Label, Sort } from '../../components'
 import { TopPageHeaderProps } from './TopPageHeader.props'
 import styles from './TopPageHeader.module.css'
-import { SortOptions } from '../../enums'
-import { sortReducer } from '../../reducers'
 
 const TopPageHeader = ({
   title,
