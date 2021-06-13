@@ -20,12 +20,12 @@ interface TopPageProps extends Record<string, unknown> {
 }
 
 const TopPage = ({ page, products }: TopPageProps): JSX.Element => {
-  const { title, hh, advantages, seoText } = page
+  const { title, category, hh, advantages, seoText } = page
 
   return (
     <>
       <TopPageHeader title={title} totalProducts={products.length} />
-      {hh && <HHData {...hh} />}
+      {hh && <HHData category={category} {...hh} />}
       {advantages && advantages.length > 0 && (
         <Advantages advantages={advantages} />
       )}

@@ -1,5 +1,7 @@
 import { IHHData } from '../../interfaces'
 
-interface HHDataProps extends IHHData {}
+interface HHDataProps extends IHHData {
+  category: string
+}
 
 export type { HHDataProps }
