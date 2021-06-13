@@ -22,6 +22,10 @@ interface TopPageProps extends Record<string, unknown> {
 }
 
 const TopPage = ({ page, products }: TopPageProps): JSX.Element => {
+  if(!page) {
+    return <></>
+  }
+
   const { title, category, hh, advantages, seoText } = page
 
   const {

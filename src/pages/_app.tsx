@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import type { AppProps } from 'next/app'
+import { StoreProvider } from '../store'
 import './globals.css'
-import { AppContextProvider } from '../contexts'
 
 const App = ({ Component, pageProps }: AppProps): JSX.Element => (
   <>
@@ -14,11 +14,9 @@ const App = ({ Component, pageProps }: AppProps): JSX.Element => (
         rel='stylesheet'
       />
     </Head>
-    <AppContextProvider
-      {...pageProps}
-    >
+    <StoreProvider {...pageProps}>
       <Component {...pageProps} />
-    </AppContextProvider>
+    </StoreProvider>
   </>
 )
 

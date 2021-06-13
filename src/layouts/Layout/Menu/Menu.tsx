@@ -1,10 +1,9 @@
-import { useContext } from 'react'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 import cn from 'classnames'
-import { AppContext } from '../../../contexts'
 import { IPageItem } from '../../../interfaces'
 import { firstLevelMenuItems } from '../../../constants'
+import { useActiveFirstLevelMenu, useMenu } from '../../../store/hooks'
 import { isCurrentPage } from '../../../utils'
 import styles from './Menu.module.css'
 
@@ -18,7 +17,7 @@ interface ThirdLevelMenuProps {
 }
 
 const Menu = (): JSX.Element => {
-  const { activeFirstLevelMenu } = useContext(AppContext)
+  const activeFirstLevelMenu = useActiveFirstLevelMenu()
 
   const FirstLevelMenu = (): JSX.Element => (
     <ul>
@@ -43,7 +42,7 @@ const Menu = (): JSX.Element => {
     </ul>
   )
 
-  const { menu, setMenu } = useContext(AppContext)
+  const [menu, setMenu] = useMenu()
   const { query } = useRouter()
 
   const SecondLevelMenu = ({
@@ -54,16 +53,15 @@ const Menu = (): JSX.Element => {
     }
 
     const openMenu = (secondCategory: string): void => {
-      setMenu &&
-        setMenu(
-          menu.map((menuItem) => {
-            if (menuItem._id.secondCategory === secondCategory) {
-              menuItem.isOpen = !menuItem.isOpen
-            }
+      setMenu(
+        menu.map((menuItem) => {
+          if (menuItem._id.secondCategory === secondCategory) {
+            menuItem.isOpen = !menuItem.isOpen
+          }
 
-            return menuItem
-          })
-        )
+          return menuItem
+        })
+      )
     }
 
     return (
