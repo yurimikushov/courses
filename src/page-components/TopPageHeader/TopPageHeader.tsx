@@ -1,5 +1,6 @@
 import cn from 'classnames'
-import { Heading, Label, Sort } from '../../components'
+import { Heading, Label } from '../../components'
+import { Sort } from '../../page-components'
 import { TopPageHeaderProps } from './TopPageHeader.props'
 import styles from './TopPageHeader.module.css'
 

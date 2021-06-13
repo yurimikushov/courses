@@ -1,4 +1,5 @@
 export { TopPageHeader } from './TopPageHeader/TopPageHeader'
+export { Sort } from './Sort/Sort'
 export { HHData } from './HHData/HHData'
 export { Advantages } from './Advantages/Advantages'
 export { SeoText } from './SeoText/SeoText'
