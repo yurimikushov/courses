@@ -1,5 +1,9 @@
 enum MenuActions {
-  SET,
+  SET = 'menu/set',
 }
 
-export { MenuActions }
+enum ProductsActions {
+  SET = 'products/set',
+}
+
+export { MenuActions, ProductsActions }
