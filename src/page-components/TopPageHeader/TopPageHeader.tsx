@@ -12,8 +12,14 @@ const TopPageHeader = ({
   ...props
 }: TopPageHeaderProps): JSX.Element => (
   <header className={cn(className, styles.header)} {...props}>
-    <Heading tag='h1'>{title}</Heading>
-    {totalProducts > 0 && <Label color='gray'>{totalProducts}</Label>}
+    <Heading className={styles.title} tag='h1'>
+      {title}
+    </Heading>
+    {totalProducts > 0 && (
+      <Label className={styles.totalProducts} color='gray'>
+        {totalProducts}
+      </Label>
+    )}
     <Sort className={styles.sort} sort={sort} onSort={onSort} />
   </header>
 )

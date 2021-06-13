@@ -1,11 +1,21 @@
 .header {
   display: grid;
   grid-template-columns: auto auto 1fr;
+  grid-template-areas: 'title totalProducts sort';
 
   align-items: center;
   gap: 0.625rem;
 }
 
+.title {
+  grid-area: title;
+}
+
+.totalProducts {
+  grid-area: totalProducts;
+}
+
 .sort {
+  grid-area: sort;
   justify-self: end;
 }
