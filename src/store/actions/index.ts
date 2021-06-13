@@ -1,4 +1,4 @@
-export { setMenu } from './setMenu'
-export type { IMenuActions } from './setMenu'
-export { setProducts } from './setProducts'
-export type { IProductsActions } from './setProducts'
+export { setMenu } from './menu'
+export type { IMenuActions } from './menu'
+export { setProducts } from './products'
+export type { IProductsActions } from './products'
