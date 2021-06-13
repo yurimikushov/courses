@@ -9,10 +9,9 @@ import {
 } from '../../page-components'
 import { Card } from '../../components'
 import { firstLevelMenuItems } from '../../constants'
-import { SortOptions } from '../../enums'
-import { useProductsSort } from '../../hooks'
 import { IMenuItem, ITopPage, IProduct } from '../../interfaces'
 import { withLayout } from '../../layouts'
+import { useSortedProducts } from '../../store/hooks'
 import { cleanUpPageData } from '../../utils'
 
 interface TopPageProps extends Record<string, unknown> {
@@ -21,32 +20,20 @@ interface TopPageProps extends Record<string, unknown> {
   products: IProduct[]
 }
 
-const TopPage = ({ page, products }: TopPageProps): JSX.Element => {
-  if(!page) {
+const TopPage = ({ page }: TopPageProps): JSX.Element => {
+  const products: IProduct[] = useSortedProducts()
+
+  if (!page) {
     return <></>
   }
 
   const { title, category, hh, advantages, seoText } = page
 
-  const {
-    sort,
-    products: sortedProducts,
-    setSort,
-  } = useProductsSort({
-    sort: SortOptions.Rating,
-    products,
-  })
-
   return (
     <>
-      <TopPageHeader
-        title={title}
-        totalProducts={products.length}
-        sort={sort}
-        onSort={setSort}
-      />
+      <TopPageHeader title={title} totalProducts={products.length} />
       <ul>
-        {sortedProducts.map(({ _id, title, initialRating, price }) => (
+        {products.map(({ _id, title, initialRating, price }) => (
           <li key={_id}>
             {title}, {initialRating}, {price}
           </li>

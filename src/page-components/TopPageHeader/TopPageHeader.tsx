@@ -6,8 +6,6 @@ import styles from './TopPageHeader.module.css'
 const TopPageHeader = ({
   title,
   totalProducts,
-  sort,
-  onSort,
   className,
   ...props
 }: TopPageHeaderProps): JSX.Element => (
@@ -20,7 +18,7 @@ const TopPageHeader = ({
         {totalProducts}
       </Label>
     )}
-    <Sort className={styles.sort} sort={sort} onSort={onSort} />
+    <Sort className={styles.sort} />
   </header>
 )
 

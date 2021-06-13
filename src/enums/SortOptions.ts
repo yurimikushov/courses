@@ -1,6 +1,6 @@
 enum SortOptions {
-  Rating,
-  Price,
+  Rating = 'byRating',
+  Price = 'byPrice',
 }
 
 export { SortOptions }

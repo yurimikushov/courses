@@ -1,1 +1,0 @@
-export { useProductsSort } from './useProductsSort'

@@ -6,4 +6,9 @@ enum ProductsActions {
   SET = 'products/set',
 }
 
-export { MenuActions, ProductsActions }
+enum SortProductsByActions {
+  RATING = 'sortProductsBy/rating',
+  PRICE = 'sortProductsBy/price',
+}
+
+export { MenuActions, ProductsActions, SortProductsByActions }
