@@ -4,7 +4,7 @@ import { SortProps } from './Sort.props'
 
 const Sort = ({
   sort,
-  setSort,
+  onSort,
   className,
   ...props
 }: SortProps): JSX.Element => (
@@ -12,12 +12,12 @@ const Sort = ({
     <SortItem
       title='По рейтингу'
       isActive={sort === SortOptions.Rating}
-      onClick={() => setSort(SortOptions.Rating)}
+      onClick={() => onSort(SortOptions.Rating)}
     />
     <SortItem
       title='По цене'
       isActive={sort === SortOptions.Price}
-      onClick={() => setSort(SortOptions.Price)}
+      onClick={() => onSort(SortOptions.Price)}
     />
   </div>
 )
