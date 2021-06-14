@@ -1,5 +1,5 @@
+import { useState, KeyboardEvent } from 'react'
 import cn from 'classnames'
-import { useState } from 'react'
 import { Input, Button } from '../../components'
 import SearchIcon from './assets/search.svg'
 import { SearchProps } from './Search.props'
@@ -10,19 +10,32 @@ const Search = ({
   onSearch,
   ...props
 }: SearchProps): JSX.Element => {
-  const [search, setSearch] = useState<string>('')
+  const [searchQuery, setSearchQuery] = useState<string>('')
+
+  const onSearchHandler = () => onSearch(searchQuery)
+  
+  const onKeyUpHandler = ({ key }: KeyboardEvent<HTMLInputElement>): void => {   
+    if (key === 'Enter') {
+      onSearchHandler()
+    }
+  }
 
   return (
     <div className={cn(className, styles.search)} {...props}>
       <Input
         className={cn(styles.input, {
-          [styles.filled]: search.length > 0,
+          [styles.filled]: searchQuery.length > 0,
         })}
-        value={search}
-        onChange={(e) => setSearch(e.target.value)}
+        value={searchQuery}
+        onChange={(e) => setSearchQuery(e.target.value)}
         placeholder='Поиск...'
+        onKeyUp={onKeyUpHandler}
       />
-      <Button className={styles.button} appearance='primary' onClick={onSearch}>
+      <Button
+        className={styles.button}
+        appearance='primary'
+        onClick={onSearchHandler}
+      >
         <SearchIcon />
       </Button>
     </div>
