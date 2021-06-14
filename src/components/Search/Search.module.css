@@ -1,0 +1,30 @@
+.search {
+  position: relative;
+
+  width: 100%;
+}
+
+.input {
+  width: 100%;
+}
+
+.input.filled {
+  padding-right: 40px;
+}
+
+.button {
+  position: absolute;
+  top: 0.1875rem;
+  right: 0.1875rem;
+
+  display: none;
+
+  width: 1.875rem;
+  height: 1.875rem;
+
+  padding: 0.4375rem;
+}
+
+.input.filled + .button {
+  display: block;
+}

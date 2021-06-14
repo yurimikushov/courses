@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import cn from 'classnames'
+import { Search } from '../../../components'
 import { Menu } from '../Menu/Menu'
 import Logo from '../Logo.svg'
 import { SidebarProps } from './Sidebar.props'
@@ -15,9 +16,7 @@ const Sidebar = ({ className, ...props }: SidebarProps): JSX.Element => (
       </Link>
     </div>
     <div>
-      <Link href='/search'>
-        <a>Поиск</a>
-      </Link>
+      <Search onSearch={() => console.log('searching...')} />
     </div>
     <Menu />
   </div>
