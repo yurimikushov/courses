@@ -14,7 +14,7 @@ const HHData = ({
   <div>
     <div className={styles.header}>
       <Heading tag='h2'>Вакансии - {category}</Heading>
-      <Label color='hh'>hh.ru</Label>
+      <Label className={styles.hhLabel} color='hh'>hh.ru</Label>
     </div>
     <div className={styles.hh}>
       <Card className={styles.vacancies}>

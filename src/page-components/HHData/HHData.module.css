@@ -4,6 +4,10 @@
   gap: 1.3rem;
 }
 
+.hhLabel {
+  margin-top: 0.25rem;
+}
+
 .hh {
   display: grid;
   grid-template-columns: 1fr 3fr;
