@@ -6,8 +6,8 @@ import {
   HHData,
   Advantages,
   SeoText,
+  Skills,
 } from '../../page-components'
-import { Card } from '../../components'
 import { firstLevelMenuItems } from '../../constants'
 import { IMenuItem, ITopPage, IProduct } from '../../interfaces'
 import { withLayout } from '../../layouts'
@@ -27,7 +27,7 @@ const TopPage = ({ page }: TopPageProps): JSX.Element => {
     return <></>
   }
 
-  const { title, category, hh, advantages, seoText } = page
+  const { title, category, hh, advantages, seoText, tags } = page
 
   return (
     <>
@@ -44,10 +44,7 @@ const TopPage = ({ page }: TopPageProps): JSX.Element => {
         <Advantages advantages={advantages} />
       )}
       {seoText && <SeoText text={seoText} />}
-      <pre className='products-data' style={{ whiteSpace: 'pre-wrap' }}>
-        <Card>{JSON.stringify(page, null, 2)}</Card>
-        <Card color='whiteBlue'>{JSON.stringify(products, null, 2)}</Card>
-      </pre>
+      <Skills skills={tags} />
     </>
   )
 }
