@@ -1,0 +1,21 @@
+.input {
+  padding: 0.4375rem 0.75rem;
+
+  color: var(--color-black);
+
+  border: none;
+  border-radius: 5px;
+
+  outline-color: var(--color-primary);
+
+  background-color: var(--color-white);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.05);
+
+  font-family: var(--font-family);
+  font-size: 1rem;
+  line-height: 1.375rem;
+}
+
+.input::placeholder {
+  color: var(--color-gray);
+}

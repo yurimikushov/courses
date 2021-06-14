@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { fetchMenu } from '../api'
 import { IMenuItem } from '../interfaces'
 import { withLayout } from '../layouts'
-import { Heading, P, Label, Button, Rating } from '../components'
+import { Heading, P, Label, Button, Rating, Input } from '../components'
 import { TopLevelCategory } from '../enums'
 
 interface HomeProps extends Record<string, unknown> {
@@ -14,6 +14,7 @@ const HomePage = ({ menu }: HomeProps): JSX.Element => {
   const [primaryArrowDown, setPrimaryArrowDown] = useState<boolean>(true)
   const [ghostArrowDown, setGhostArrowRight] = useState<boolean>(false)
   const [rating, setRating] = useState<number>(2)
+  const [inputValue, setInputValue] = useState<string>('')
 
   return (
     <>
@@ -74,6 +75,13 @@ const HomePage = ({ menu }: HomeProps): JSX.Element => {
           rating={rating}
           editable={true}
           setRating={setRating}
+        />
+      </div>
+      <div className='inputs'>
+        <Input
+          value={inputValue}
+          onChange={(e) => setInputValue(e.target.value)}
+          placeholder='Имя'
         />
       </div>
       <pre className='menu-data' style={{ whiteSpace: 'pre-wrap' }}>
