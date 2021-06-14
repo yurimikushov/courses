@@ -3,7 +3,15 @@ import { useState } from 'react'
 import { fetchMenu } from '../api'
 import { IMenuItem } from '../interfaces'
 import { withLayout } from '../layouts'
-import { Heading, P, Label, Button, Rating, Input } from '../components'
+import {
+  Heading,
+  P,
+  Label,
+  Button,
+  Rating,
+  Input,
+  Textarea,
+} from '../components'
 import { TopLevelCategory } from '../enums'
 
 interface HomeProps extends Record<string, unknown> {
@@ -15,6 +23,7 @@ const HomePage = ({ menu }: HomeProps): JSX.Element => {
   const [ghostArrowDown, setGhostArrowRight] = useState<boolean>(false)
   const [rating, setRating] = useState<number>(2)
   const [inputValue, setInputValue] = useState<string>('')
+  const [textareaValue, setTextareaValue] = useState<string>('')
 
   return (
     <>
@@ -82,6 +91,13 @@ const HomePage = ({ menu }: HomeProps): JSX.Element => {
           value={inputValue}
           onChange={(e) => setInputValue(e.target.value)}
           placeholder='Имя'
+        />
+      </div>
+      <div className='textarea'>
+        <Textarea
+          value={textareaValue}
+          onChange={(e) => setTextareaValue(e.target.value)}
+          placeholder='Комментарий'
         />
       </div>
       <pre className='menu-data' style={{ whiteSpace: 'pre-wrap' }}>
