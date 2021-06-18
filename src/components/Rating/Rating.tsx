@@ -20,12 +20,6 @@ const Rating = ({
     setSelectedRating(rating)
   }, [rating])
 
-  const onKeyUp = (keyCode: string, rating: number): void => {
-    if (keyCode === 'Enter') {
-      setRating(rating)
-    }
-  }
-
   return (
     <div className={className} {...props}>
       {Array<JSX.Element>(STAR_TOTAL)
@@ -40,7 +34,9 @@ const Rating = ({
             onMouseEnter={() => editable && setSelectedRating(i + 1)}
             onMouseLeave={() => editable && setSelectedRating(rating)}
             onClick={() => editable && setRating(i + 1)}
-            onKeyUp={({ code }) => editable && onKeyUp(code, i + 1)}
+            onKeyUp={({ code }) =>
+              editable && code === 'Space' && setRating(i + 1)
+            }
           >
             <StarIcon
               className={cn(styles.starIcon, {
