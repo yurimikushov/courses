@@ -3,6 +3,7 @@ import { ParsedUrlQuery } from 'querystring'
 import { fetchMenu, fetchPageByAlias, fetchProducts } from '../../api'
 import {
   TopPageHeader,
+  Products,
   HHData,
   Advantages,
   SeoText,
@@ -32,13 +33,7 @@ const TopPage = ({ page }: TopPageProps): JSX.Element => {
   return (
     <>
       <TopPageHeader title={title} totalProducts={products.length} />
-      <ul>
-        {products.map(({ _id, title, initialRating, price }) => (
-          <li key={_id}>
-            {title}, {initialRating}, {price}
-          </li>
-        ))}
-      </ul>
+      <Products products={products}/>
       {hh && <HHData category={category} {...hh} />}
       {advantages && advantages.length > 0 && (
         <Advantages advantages={advantages} />
