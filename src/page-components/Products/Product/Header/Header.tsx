@@ -16,7 +16,7 @@ const Header = ({
 }: HeaderProps): JSX.Element => (
   <div className={cn(className, styles.header)}>
     <div className={styles.logo}>
-      <img src={image} alt='Picture of the author' />
+      <img src={image} alt='Логотип школы.' />
     </div>
     <Heading className={styles.title} tag='h3'>
       {title}
