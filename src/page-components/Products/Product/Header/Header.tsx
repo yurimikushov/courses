@@ -31,7 +31,10 @@ const Header = ({
     </div>
     <div className={styles.priceValue}>{`${splitToThousands(price)} ₽`}</div>
     <div className={styles.priceTitle}>цена</div>
-    <div className={styles.creditValue}>{`${splitToThousands(credit)} ₽`}</div>
+    <div className={styles.creditValue}>
+      {`${splitToThousands(credit)} ₽`}
+      <span className={styles.month}>/мес</span>
+    </div>
     <div className={styles.creditTitle}>в кредит</div>
     <Rating className={styles.ratingValue} rating={initialRating} />
     <div className={styles.ratingTitle}>{reviewCount} отзывов</div>
