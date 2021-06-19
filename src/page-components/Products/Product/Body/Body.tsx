@@ -13,13 +13,15 @@ const Body = ({
 }: BodyProps): JSX.Element => (
   <div className={cn(className, styles.body)}>
     <div className={styles.description}>{description}</div>
-    <div>
-      <div className={styles.characteristics}>
+    <div className={styles.left}>
+      <div>
         {characteristics.map(({ name, value }) => (
           <div key={name} className={styles.characteristic}>
             <span className={styles.characteristicName}>{name}</span>
-            <span className={styles.dots}></span>
-            <span className={styles.characteristicValue}>{value}</span>
+            {value && <span className={styles.dots}></span>}
+            {value && (
+              <span className={styles.characteristicValue}>{value}</span>
+            )}
           </div>
         ))}
       </div>
@@ -29,16 +31,16 @@ const Body = ({
         ))}
       </div>
     </div>
-    <div className={styles.adv}>
+    <div className={styles.right}>
       {advantages && (
         <div className={styles.advantages}>
-          <div>Преимущества</div>
+          <div className={styles.advantagesTitle}>Преимущества</div>
           <div>{advantages}</div>
         </div>
       )}
       {disadvantages && (
         <div className={styles.disadvantages}>
-          <div>Недостатки</div>
+          <div className={styles.disadvantagesTitle}>Недостатки</div>
           <div>{disadvantages}</div>
         </div>
       )}
