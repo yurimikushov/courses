@@ -13,7 +13,7 @@ import { firstLevelMenuItems } from '../../constants'
 import { IMenuItem, ITopPage, IProduct } from '../../interfaces'
 import { withLayout } from '../../layouts'
 import { useSortedProducts } from '../../store/hooks'
-import { cleanUpPageData } from '../../utils'
+import { cleanUpPageData, resolveProductsImages } from '../../utils'
 
 interface TopPageProps extends Record<string, unknown> {
   menu: IMenuItem[]
@@ -90,7 +90,7 @@ const getStaticProps: GetStaticProps<TopPageProps> = async ({
     props: {
       menu,
       page: cleanUpPageData(page),
-      products,
+      products: resolveProductsImages(products),
       activeFirstLevelMenu: activeMenuItem.id,
     },
   }
