@@ -3,9 +3,9 @@ import { CardProps } from './Card.props'
 import styles from './Card.module.css'
 
 const Card = ({
+  color = 'white',
   children,
   className,
-  color,
   ...props
 }: CardProps): JSX.Element => (
   <div
