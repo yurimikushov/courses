@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import cn from 'classnames'
 import { Label, Rating, Heading } from '../../../../components'
 import { splitToThousands } from '../../../../utils'
@@ -16,7 +17,7 @@ const Header = ({
 }: HeaderProps): JSX.Element => (
   <div className={cn(className, styles.header)}>
     <div className={styles.logo}>
-      <img src={image} alt='Логотип школы.' />
+      <Image src={image} alt='Логотип школы.' width={70} height={70} />
     </div>
     <Heading className={styles.title} tag='h3'>
       {title}

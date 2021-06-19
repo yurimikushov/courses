@@ -1,4 +1,7 @@
 module.exports = {
+  images: {
+    domains: [new URL(process.env.NEXT_PUBLIC_API).host],
+  },
   webpack(config) {
     config.module.rules.push({
       test: /\.svg$/,
