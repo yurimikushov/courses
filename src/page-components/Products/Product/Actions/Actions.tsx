@@ -4,7 +4,7 @@ import { ActionsProps } from './Actions.props'
 import styles from './Actions.module.css'
 
 const Actions = ({ className, ...props }: ActionsProps): JSX.Element => (
-  <div className={cn(className, styles.footer)} {...props}>
+  <div className={cn(className, styles.actions)} {...props}>
     <Button appearance='primary'>Узнать подробнее</Button>
     <Button appearance='ghost' arrow='right'>
       Читать отзывы
