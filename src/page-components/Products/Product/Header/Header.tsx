@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import cn from 'classnames'
 import { Label, Rating, Heading } from '../../../../components'
-import { splitToThousands } from '../../../../utils'
+import { declOfNum, splitToThousands } from '../../../../utils'
 import { HeaderProps } from './Header.props'
 import styles from './Header.module.css'
 
@@ -37,7 +37,9 @@ const Header = ({
     </div>
     <div className={styles.creditTitle}>в кредит</div>
     <Rating className={styles.ratingValue} rating={initialRating} />
-    <div className={styles.ratingTitle}>{reviewCount} отзывов</div>
+    <div className={styles.ratingTitle}>
+      {reviewCount} {declOfNum(reviewCount, ['отзыв', 'отзыва', 'отзывов'])}
+    </div>
   </div>
 )
 
