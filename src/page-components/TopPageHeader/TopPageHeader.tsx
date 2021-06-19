@@ -19,7 +19,7 @@ const TopPageHeader = ({
         {totalProducts}
       </Label>
     )}
-    <Sort className={styles.sort} />
+    {totalProducts > 0 && <Sort className={styles.sort} />}
   </header>
 )
 
