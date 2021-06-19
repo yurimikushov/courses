@@ -33,7 +33,7 @@ const TopPage = ({ page }: TopPageProps): JSX.Element => {
   return (
     <>
       <TopPageHeader title={title} totalProducts={products.length} />
-      <Products products={products}/>
+      {products.length > 0 && <Products products={products} />}
       {hh && <HHData category={category} {...hh} />}
       {advantages && advantages.length > 0 && (
         <Advantages advantages={advantages} />
