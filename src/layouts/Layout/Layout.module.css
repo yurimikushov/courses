@@ -22,8 +22,6 @@
 
 .body {
   grid-area: body;
-
-  margin: 0 5vw;
 }
 
 .body > * + * {
@@ -46,6 +44,10 @@
 
   .header {
     display: initial;
+  }
+
+  .body {
+    margin: 0 5vw;
   }
 
   .sidebar {
