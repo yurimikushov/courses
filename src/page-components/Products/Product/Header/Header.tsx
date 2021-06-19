@@ -1,5 +1,6 @@
 import cn from 'classnames'
-import { Label, Rating } from '../../../../components'
+import { Label, Rating, Heading } from '../../../../components'
+import { splitToThousands } from '../../../../utils'
 import { HeaderProps } from './Header.props'
 import styles from './Header.module.css'
 
@@ -20,26 +21,22 @@ const Header = ({
         alt='Picture of the author'
       />
     </div>
-    <div>
-      <div className={styles.title}>{title}</div>
-      <div className={styles.categories}>
-        {categories.map((category) => (
-          <Label key={category}>{category}</Label>
-        ))}
-      </div>
+    <Heading className={styles.title} tag='h3'>
+      {title}
+    </Heading>
+    <div className={styles.categories}>
+      {categories.map((category) => (
+        <Label key={category} className={styles.category}>
+          {category}
+        </Label>
+      ))}
     </div>
-    <div className={styles.price}>
-      <div>{price}</div>
-      <div>цена</div>
-    </div>
-    <div className={styles.credit}>
-      <div>{credit}</div>
-      <div>в кредит</div>
-    </div>
-    <div className={styles.rating}>
-      <Rating rating={initialRating} />
-      <div>{reviewCount} отзывов</div>
-    </div>
+    <div className={styles.priceValue}>{`${splitToThousands(price)} ₽`}</div>
+    <div className={styles.priceTitle}>цена</div>
+    <div className={styles.creditValue}>{`${splitToThousands(credit)} ₽`}</div>
+    <div className={styles.creditTitle}>в кредит</div>
+    <Rating className={styles.ratingValue} rating={initialRating} />
+    <div className={styles.ratingTitle}>{reviewCount} отзывов</div>
   </div>
 )
 

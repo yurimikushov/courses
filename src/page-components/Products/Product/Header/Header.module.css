@@ -1,5 +1,87 @@
 .header {
   display: grid;
   grid-template-columns: auto 1fr auto auto auto;
-  gap: 30px;
+  grid-template-areas:
+    'logo title priceValue creditValue ratingValue'
+    'logo categories priceTitle creditTitle ratingTitle';
+  gap: 0 1.875rem;
+}
+
+.logo {
+  grid-area: logo;
+
+  align-self: center;
+}
+
+.logo img {
+  display: block;
+
+  border-radius: 5px;
+}
+
+.title {
+  grid-area: title;
+}
+
+.categories {
+  grid-area: categories;
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3125rem;
+
+  margin-top: 0.5625rem;
+}
+
+.priceValue {
+  grid-area: priceValue;
+}
+
+.priceTitle {
+  grid-area: priceTitle;
+}
+
+.creditValue {
+  grid-area: creditValue;
+}
+
+.creditTitle {
+  grid-area: creditTitle;
+}
+
+.ratingValue {
+  grid-area: ratingValue;
+}
+
+.ratingTitle {
+  grid-area: ratingTitle;
+
+  margin-left: 0.3125rem;
+}
+
+.title,
+.priceValue,
+.creditValue,
+.ratingValue {
+  align-self: flex-end;
+}
+
+.categories,
+.priceTitle,
+.creditTitle,
+.ratingTitle {
+  align-self: flex-start;
+}
+
+.priceValue,
+.creditValue {
+  font-size: 1.25rem;
+  line-height: 1.6875rem;
+}
+
+.priceTitle,
+.creditTitle,
+.ratingTitle {
+  font-size: 0.875rem;
+  line-height: 1.1875rem;
 }
