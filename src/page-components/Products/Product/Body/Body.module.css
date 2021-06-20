@@ -1,23 +1,46 @@
 .body {
   display: grid;
-  grid-template-columns: [start] 1fr [middle] 1fr [end];
-  gap: 1rem 0;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+    'description description'
+    'characteristics advantages'
+    'characteristics disadvantages'
+    'tags tags';
 }
 
 .description {
-  grid-column: start / end;
+  grid-area: description;
 }
 
-.left {
-  grid-column: start / middle;
+.characteristics {
+  grid-area: characteristics;
 
   margin-right: 1.5rem;
 }
 
-.right {
-  grid-column: middle / end;
+.advantages {
+  grid-area: advantages;
 
-  margin-left: 1.5rem;
+  border-left-color: var(--color-green);
+}
+
+.disadvantages {
+  grid-area: disadvantages;
+
+  border-left-color: var(--color-red);
+}
+
+.tags {
+  grid-area: tags;
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3125rem;
+}
+
+.characteristics,
+.advantages {
+  margin-top: 1rem;
 }
 
 .characteristic {
@@ -46,20 +69,33 @@
   margin-top: 1.25rem;
 }
 
-.tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.3125rem;
-}
-
 .advantages,
 .disadvantages {
+  margin-left: 1.5rem;
   padding-left: 1rem;
 
-  border-left: 3px solid var(--color-green);
+  border-left-width: 3px;
+  border-left-style: solid;
   border-radius: 2px;
 }
 
-.disadvantages {
-  border-left: 3px solid var(--color-red);
+@media (max-width: 1320px) {
+  .body {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      'description description'
+      'characteristics characteristics'
+      'advantages advantages'
+      'disadvantages disadvantages'
+      'tags tags';
+  }
+
+  .characteristics {
+    margin-right: 0;
+  }
+
+  .advantages,
+  .disadvantages {
+    margin-left: 0;
+  }
 }
