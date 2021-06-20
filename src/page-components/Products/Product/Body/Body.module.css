@@ -51,11 +51,14 @@
   gap: 20px;
 }
 
+.characteristic + .characteristic {
+  margin-top: 1rem;
+}
+
 .characteristicName,
 .advantagesTitle,
 .disadvantagesTitle {
   font-weight: bold;
-  line-height: 2rem;
 }
 
 .characteristic .dots {
@@ -79,7 +82,7 @@
   border-radius: 2px;
 }
 
-@media (max-width: 1320px) {
+@media (max-width: 1000px) {
   .body {
     grid-template-columns: 1fr 1fr;
     grid-template-areas:
