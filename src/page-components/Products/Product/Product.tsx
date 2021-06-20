@@ -6,12 +6,8 @@ import { Actions } from './Actions/Actions'
 import { ProductProps } from './Product.props'
 import styles from './Product.module.css'
 
-const Product = ({
-  product,
-  className,
-  ...props
-}: ProductProps): JSX.Element => (
-  <Card className={cn(className, styles.product)} {...props}>
+const Product = ({ product, className }: ProductProps): JSX.Element => (
+  <Card className={cn(className, styles.product)}>
     <Header {...product} />
     <HLine />
     <Body {...product} />

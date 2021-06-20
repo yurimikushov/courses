@@ -1,8 +1,8 @@
-import { DetailedHTMLProps, HTMLAttributes } from 'react'
 import { IProduct } from '../../../interfaces'
 
-interface ProductProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
+interface ProductProps {
   product: IProduct
+  className?: string
 }
 
 export type { ProductProps }
