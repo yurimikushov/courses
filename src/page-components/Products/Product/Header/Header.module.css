@@ -1,6 +1,6 @@
 .header {
   display: grid;
-  grid-template-columns: auto 1fr auto auto auto;
+  grid-template-columns: 70px 1fr auto auto auto;
   grid-template-areas:
     'logo title priceValue creditValue ratingValue'
     'logo categories priceTitle creditTitle ratingTitle';
@@ -12,6 +12,7 @@
 
   width: 70px;
   height: 70px;
+
   grid-area: logo;
 }
 
@@ -88,4 +89,54 @@
 
 .month {
   font-size: 0.875rem;
+}
+
+@media (max-width: 1320px) {
+  .header {
+    grid-template-columns: 70px  auto auto 1fr;
+    grid-template-areas:
+      'logo title title title'
+      'logo categories categories categories'
+      'priceValue priceValue creditValue ratingValue'
+      'priceTitle priceTitle creditTitle ratingTitle';
+  }
+
+  .priceValue {
+    margin-top: 0.5rem;
+  }
+}
+
+@media (max-width: 567px) {
+  .header {
+    grid-template-columns: 70px auto 1fr;
+    grid-template-areas:
+      'logo ratingValue ratingValue'
+      'logo ratingTitle ratingTitle'
+      'logo . .'
+      'title title title'
+      'categories categories categories'
+      'priceValue priceValue creditValue'
+      'priceTitle priceTitle creditTitle';
+    gap: 0 1rem;
+  }
+
+  .title,
+  .categories {
+    margin-top: 0.5rem;
+  }
+
+  .logo {
+    width: 55px;
+    height: 55px;
+  }
+
+  .ratingValue,
+  .ratingTitle {
+    justify-self: end;
+  }
+
+  .ratingTitle {
+    margin-right: 0.3125rem;
+    margin-left: 0;
+  }
 }
