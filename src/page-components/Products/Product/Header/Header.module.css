@@ -1,9 +1,11 @@
 .header {
   display: grid;
-  grid-template-columns: 70px 1fr auto auto auto;
+  grid-template-columns: 70px auto 1fr auto;
   grid-template-areas:
-    'logo title priceValue creditValue ratingValue'
-    'logo categories priceTitle creditTitle ratingTitle';
+    'logo titleAndCategoriesBox priceBox ratingBox'
+    'logo titleAndCategoriesBox priceBox ratingBox';
+
+  align-items: center;
   gap: 0 1.875rem;
 }
 
@@ -20,18 +22,23 @@
   border-radius: 5px;
 }
 
-.title {
-  grid-area: title;
+.titleAndCategoriesBox {
+  grid-area: titleAndCategoriesBox;
 }
 
 .categories {
-  grid-area: categories;
-
   display: flex;
   flex-wrap: wrap;
   gap: 0.3125rem;
 
   margin-top: 0.5625rem;
+}
+
+.priceBox {
+  display: flex;
+  justify-content: flex-end;
+  grid-area: priceBox;
+  gap: 0 1.875rem;
 }
 
 .priceValue {
@@ -50,28 +57,21 @@
   grid-area: creditTitle;
 }
 
-.ratingValue {
-  grid-area: ratingValue;
+.ratingBox {
+  grid-area: ratingBox;
 }
 
 .ratingTitle {
-  grid-area: ratingTitle;
-
   margin-left: 0.3125rem;
 }
 
-.title,
 .priceValue,
-.creditValue,
-.ratingValue {
-  align-self: flex-end;
-}
-
-.categories,
 .priceTitle,
+.creditValue,
 .creditTitle,
+.ratingValue,
 .ratingTitle {
-  align-self: flex-start;
+  white-space: nowrap;
 }
 
 .priceValue,
@@ -91,38 +91,31 @@
   font-size: 0.875rem;
 }
 
-@media (max-width: 1320px) {
-  .header {
-    grid-template-columns: 70px  auto auto 1fr;
-    grid-template-areas:
-      'logo title title title'
-      'logo categories categories categories'
-      'priceValue priceValue creditValue ratingValue'
-      'priceTitle priceTitle creditTitle ratingTitle';
-  }
-
-  .priceValue {
-    margin-top: 0.5rem;
-  }
-}
-
-@media (max-width: 567px) {
+@media (max-width: 1100px) {
   .header {
     grid-template-columns: 70px auto 1fr;
     grid-template-areas:
-      'logo ratingValue ratingValue'
-      'logo ratingTitle ratingTitle'
-      'logo . .'
-      'title title title'
-      'categories categories categories'
-      'priceValue priceValue creditValue'
-      'priceTitle priceTitle creditTitle';
-    gap: 0 1rem;
+      'logo titleAndCategoriesBox titleAndCategoriesBox'
+      'priceBox priceBox ratingBox';
   }
 
-  .title,
-  .categories {
-    margin-top: 0.5rem;
+  .priceBox {
+    justify-content: flex-start;
+  }
+
+  .priceBox,
+  .ratingBox {
+    margin-top: 1rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .header {
+    grid-template-columns: 70px auto 1fr;
+    grid-template-areas:
+      'logo ratingBox ratingBox'
+      'titleAndCategoriesBox titleAndCategoriesBox titleAndCategoriesBox'
+      'priceBox priceBox priceBox';
   }
 
   .logo {
@@ -130,9 +123,17 @@
     height: 55px;
   }
 
-  .ratingValue,
-  .ratingTitle {
-    justify-self: end;
+  .titleAndCategoriesBox {
+    margin-top: 1rem;
+  }
+
+  .ratingBox {
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+
+    margin-top: 0;
+    justify-self: flex-end;
   }
 
   .ratingTitle {
