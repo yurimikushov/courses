@@ -1,5 +1,5 @@
 import cn from 'classnames'
-import { Label } from '../../../../components'
+import { Label } from '../../../components'
 import { BodyProps } from './Body.props'
 import styles from './Body.module.css'
 

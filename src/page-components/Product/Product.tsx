@@ -1,5 +1,5 @@
 import cn from 'classnames'
-import { Card, HLine } from '../../../components'
+import { Card, HLine } from '../../components'
 import { Header } from './Header/Header'
 import { Body } from './Body/Body'
 import { Actions } from './Actions/Actions'

@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import cn from 'classnames'
-import { Label, Rating, Heading } from '../../../../components'
-import { declOfNum, splitToThousands } from '../../../../utils'
+import { Label, Rating, Heading } from '../../../components'
+import { declOfNum, splitToThousands } from '../../../utils'
 import { HeaderProps } from './Header.props'
 import styles from './Header.module.css'
 

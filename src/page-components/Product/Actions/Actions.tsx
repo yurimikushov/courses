@@ -1,5 +1,5 @@
 import cn from 'classnames'
-import { Button } from '../../../../components'
+import { Button } from '../../../components'
 import { ActionsProps } from './Actions.props'
 import styles from './Actions.module.css'
 

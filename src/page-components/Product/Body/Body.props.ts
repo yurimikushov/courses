@@ -1,4 +1,4 @@
-import { IProduct } from '../../../../interfaces'
+import { IProduct } from '../../../interfaces'
 
 interface BodyProps extends IProduct {
   className?: string

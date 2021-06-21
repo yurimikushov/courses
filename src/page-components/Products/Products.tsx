@@ -1,5 +1,5 @@
 import { Reviews } from '../Reviews/Reviews'
-import { Product } from './Product/Product'
+import { Product } from '../Product/Product'
 import { ProductsProps } from './Products.props'
 import styles from './Products.module.css'
 
