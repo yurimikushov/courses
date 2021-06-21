@@ -1,15 +1,8 @@
+import { IReview } from './IReview'
+
 interface IProductCharacteristic {
   value: string
   name: string
-}
-
-interface IReview {
-  _id: string
-  name: string
-  title: string
-  description: string
-  rating: number
-  createdAt: Date
 }
 
 interface IProduct {

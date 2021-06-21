@@ -1,0 +1,31 @@
+.reviews {
+  padding: 2rem;
+}
+
+.review {
+  font-size: 0.875rem;
+}
+
+.review + .review {
+  margin-top: 1.5rem;
+}
+
+.header {
+  display: grid;
+  grid-template-columns: 30px auto auto 1fr auto;
+  gap: 0 10px;
+
+  align-items: center;
+}
+
+.reviewer {
+  font-weight: bold;
+}
+
+.createdAt {
+  justify-self: flex-end;
+}
+
+.description {
+  margin-top: 0.625rem;
+}
