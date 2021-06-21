@@ -1,5 +1,5 @@
 export { TopPageHeader } from './TopPageHeader/TopPageHeader'
-export { Products } from './Products/Products'
+export { ProductsWithReviews } from './ProductsWithReviews/ProductsWithReviews'
 export { Sort } from './Sort/Sort'
 export { HHData } from './HHData/HHData'
 export { Advantages } from './Advantages/Advantages'
