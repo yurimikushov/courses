@@ -1,16 +1,9 @@
 import cn from 'classnames'
 import { Card, Rating, HLine } from '../../components'
+import { formatDate } from '../../utils'
 import UserIcon from './assets/user.svg'
 import { ReviewsProps } from './Reviews.props'
 import styles from './Reviews.module.css'
-
-const formatDate = (date: Date): string => {
-  return new Date(date).toLocaleString('ru', {
-    day: 'numeric',
-    month: 'long',
-    year: 'numeric',
-  })
-}
 
 const Reviews = ({
   reviews,
