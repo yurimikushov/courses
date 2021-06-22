@@ -16,7 +16,7 @@ const Reviews = ({
         <div key={_id} className={styles.review}>
           <div className={styles.header}>
             <UserIcon />
-            <div className={styles.reviewerName}>{reviewerName}:</div>
+            <div className={styles.reviewerName}>{reviewerName}</div>
             <div className={styles.title}>{title}</div>
             <div className={styles.createdAt}>{formatDate(createdAt)}</div>
             <Rating className={styles.rating} rating={rating} />
