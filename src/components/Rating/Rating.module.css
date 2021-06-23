@@ -1,6 +1,8 @@
-.star {
-  display: inline-block;
+.rating {
+  display: flex;
+}
 
+.star {
   padding: 3px;
 }
 

@@ -21,7 +21,7 @@ const Rating = ({
   }, [rating])
 
   return (
-    <div className={className} {...props}>
+    <div className={cn(className, styles.rating)} {...props}>
       {Array<JSX.Element>(STAR_TOTAL)
         .fill(<></>)
         .map((_: JSX.Element, i: number) => (
