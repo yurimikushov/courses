@@ -1,0 +1,48 @@
+.form {
+  display: grid;
+
+  grid-template-columns: auto auto 1fr;
+  gap: 1.25rem 1.875rem;
+
+  align-items: center;
+
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+}
+
+.reviewerName,
+.title {
+  max-width: 300px;
+}
+
+.estimation,
+.submit {
+  display: flex;
+  gap: 1.25rem;
+
+  align-items: center;
+}
+
+.estimation {
+  justify-self: flex-end;
+}
+
+.description,
+.submit {
+  grid-column: 1 / -1;
+}
+
+.description {
+  resize: none;
+}
+
+@media (max-width: 1100px) {
+  .form {
+    grid-template-columns: auto;
+  }
+
+  .estimation {
+    gap: 0.5rem;
+    justify-self: flex-start;
+  }
+}

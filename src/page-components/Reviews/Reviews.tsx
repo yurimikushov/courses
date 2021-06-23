@@ -1,6 +1,7 @@
 import cn from 'classnames'
 import { Card, HLine } from '../../components'
 import { Review } from './Review/Review'
+import { ReviewForm } from './ReviewForm/ReviewForm'
 import { ReviewsProps } from './Reviews.props'
 import styles from './Reviews.module.css'
 
@@ -15,7 +16,7 @@ const Reviews = ({
     ))}
     {reviews.length === 0 && <div>Здесь ещё нет отзывов. Будьте первым</div>}
     <HLine />
-    Форма
+    <ReviewForm />
   </Card>
 )
 
