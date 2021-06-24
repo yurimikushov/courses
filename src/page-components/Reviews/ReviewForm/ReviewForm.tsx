@@ -1,54 +1,55 @@
-import { FormEvent, useState } from 'react'
+import { useForm, Controller } from 'react-hook-form'
 import cn from 'classnames'
 import { Rating, Input, Textarea, Button } from '../../../components'
+import { IReviewForm } from './ReviewForm.interface'
 import { ReviewFormProps } from './ReviewForm.props'
 import styles from './ReviewForm.module.css'
 
 const ReviewForm = ({ className }: ReviewFormProps): JSX.Element => {
-  const [reviewerName, setReviewerName] = useState<string>('')
-  const [title, setTitle] = useState<string>('')
-  const [description, setDescription] = useState<string>('')
-  const [rating, setRating] = useState<number>(0)
+  const { register, control, handleSubmit } = useForm<IReviewForm>()
 
-  const onSubmit = (e: FormEvent): void => {
-    e.preventDefault()
-
-    console.log('submitting...', {
-      reviewerName,
-      title,
-      description,
-      rating,
-    })
+  const onSubmit = (data: IReviewForm): void => {
+    console.log(data)
   }
 
   return (
-    <form className={cn(className, styles.form)}>
+    <form
+      className={cn(className, styles.form)}
+      onSubmit={handleSubmit(onSubmit)}
+    >
       <Input
         className={styles.reviewerName}
-        value={reviewerName}
-        onChange={({ target }) => setReviewerName(target.value)}
+        {...register('reviewerName')}
         placeholder='Имя'
       />
       <Input
         className={styles.title}
-        value={title}
-        onChange={({ target }) => setTitle(target.value)}
+        {...register('title')}
         placeholder='Заголовок отзыва'
       />
       <div className={styles.estimation}>
         <span>Оценка:</span>
-        <Rating editable={true} rating={rating} setRating={setRating} />
+        <Controller
+          name='rating'
+          defaultValue={0}
+          control={control}
+          render={({ field }) => (
+            <Rating
+              ref={field.ref}
+              editable={true}
+              rating={field.value}
+              setRating={field.onChange}
+            />
+          )}
+        />
       </div>
       <Textarea
         className={styles.description}
-        value={description}
-        onChange={({ target }) => setDescription(target.value)}
+        {...register('description')}
         placeholder='Текст отзыва'
       />
       <div className={styles.submit}>
-        <Button appearance='primary' onClick={onSubmit}>
-          Отправить
-        </Button>
+        <Button appearance='primary'>Отправить</Button>
         <div>
           * Перед публикацией отзыв пройдет предварительную модерацию и проверку
         </div>
