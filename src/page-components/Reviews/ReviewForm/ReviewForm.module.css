@@ -33,7 +33,9 @@
 }
 
 .description {
-  resize: none;
+  min-height: 100px;
+
+  resize: vertical;
 }
 
 @media (max-width: 1100px) {
