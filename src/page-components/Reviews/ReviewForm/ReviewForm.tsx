@@ -1,15 +1,34 @@
 import { useForm, Controller } from 'react-hook-form'
+import axios from 'axios'
 import cn from 'classnames'
 import { Rating, Input, Textarea, Button } from '../../../components'
+import { API } from '../../../constants'
 import { IReviewForm } from './ReviewForm.interface'
+import { IReviewFormResponse } from './IReviewFormResponse.interface'
 import { ReviewFormProps } from './ReviewForm.props'
 import styles from './ReviewForm.module.css'
 
-const ReviewForm = ({ className }: ReviewFormProps): JSX.Element => {
+const ReviewForm = ({ productId, className }: ReviewFormProps): JSX.Element => {
   const { register, control, handleSubmit } = useForm<IReviewForm>()
 
-  const onSubmit = (data: IReviewForm): void => {
-    console.log(data)
+  const onSubmit = async (formData: IReviewForm) => {
+    try {
+      const { status } = await axios.post<IReviewFormResponse>(
+        API.review.create,
+        {
+          productId,
+          ...formData,
+        }
+      )
+
+      if (status === 201) {
+        console.log('Success')
+      } else {
+        console.error('Error')
+      }
+    } catch {
+      console.error('Error')
+    }
   }
 
   return (
@@ -17,11 +36,7 @@ const ReviewForm = ({ className }: ReviewFormProps): JSX.Element => {
       className={cn(className, styles.form)}
       onSubmit={handleSubmit(onSubmit)}
     >
-      <Input
-        className={styles.reviewerName}
-        {...register('reviewerName')}
-        placeholder='Имя'
-      />
+      <Input className={styles.name} {...register('name')} placeholder='Имя' />
       <Input
         className={styles.title}
         {...register('title')}

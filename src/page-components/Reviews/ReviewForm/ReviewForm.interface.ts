@@ -1,5 +1,5 @@
 interface IReviewForm {
-  reviewerName: string
+  name: string
   title: string
   description: string
   rating: number

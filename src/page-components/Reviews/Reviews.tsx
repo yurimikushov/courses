@@ -6,6 +6,7 @@ import { ReviewsProps } from './Reviews.props'
 import styles from './Reviews.module.css'
 
 const Reviews = ({
+  productId,
   reviews,
   className,
   ...props
@@ -16,7 +17,7 @@ const Reviews = ({
     ))}
     {reviews.length === 0 && <div>Здесь ещё нет отзывов. Будьте первым</div>}
     <HLine />
-    <ReviewForm />
+    <ReviewForm productId={productId} />
   </Card>
 )
 

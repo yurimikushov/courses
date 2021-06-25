@@ -20,7 +20,7 @@ const ProductWithReviews = ({
         showReviews={showReviews}
         onToggleShowReviews={toggleShowReviews}
       />
-      {showReviews && <Reviews reviews={product.reviews} />}
+      {showReviews && <Reviews productId={product._id} reviews={product.reviews} />}
     </div>
   )
 }
