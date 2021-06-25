@@ -1,0 +1,30 @@
+.alert {
+  position: relative;
+
+  padding: 1.25rem;
+  padding-right: 2.5rem;
+}
+
+.alert.success {
+  background-color: var(--color-green-light);
+}
+
+.alert.error {
+  background-color: var(--color-red-light);
+}
+
+.close {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+
+  cursor: pointer;
+}
+
+.alert.success svg path {
+  stroke: var(--color-green);
+}
+
+.alert.error svg path {
+  stroke: var(--color-red);
+}

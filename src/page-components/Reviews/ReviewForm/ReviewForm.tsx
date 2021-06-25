@@ -1,7 +1,8 @@
+import { useState } from 'react'
 import { useForm, Controller } from 'react-hook-form'
 import axios from 'axios'
 import cn from 'classnames'
-import { Rating, Input, Textarea, Button } from '../../../components'
+import { Rating, Input, Textarea, Button, Alert } from '../../../components'
 import { API } from '../../../constants'
 import { IReviewForm } from './ReviewForm.interface'
 import { IReviewFormResponse } from './IReviewFormResponse.interface'
@@ -10,6 +11,8 @@ import styles from './ReviewForm.module.css'
 
 const ReviewForm = ({ productId, className }: ReviewFormProps): JSX.Element => {
   const { register, control, handleSubmit } = useForm<IReviewForm>()
+  const [showSuccessAlert, setShowSuccessAlert] = useState<boolean>(true)
+  const [showErrorAlert, setShowErrorAlert] = useState<boolean>(true)
 
   const onSubmit = async (formData: IReviewForm) => {
     try {
@@ -69,6 +72,22 @@ const ReviewForm = ({ productId, className }: ReviewFormProps): JSX.Element => {
           * Перед публикацией отзыв пройдет предварительную модерацию и проверку
         </div>
       </div>
+      {showSuccessAlert && (
+        <Alert
+          appearance='success'
+          onClose={() => setShowSuccessAlert(false)}
+        >
+          Спасибо, ваш отзыв будет опубликован после проверки.
+        </Alert>
+      )}
+      {showErrorAlert && (
+        <Alert
+          appearance='error'
+          onClose={() => setShowErrorAlert(false)}
+        >
+          Что-то пошло не так, попробуйте обновить страницу
+        </Alert>
+      )}
     </form>
   )
 }
