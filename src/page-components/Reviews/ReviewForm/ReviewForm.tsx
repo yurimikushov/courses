@@ -74,6 +74,7 @@ const ReviewForm = ({ productId, className }: ReviewFormProps): JSX.Element => {
       </div>
       {showSuccessAlert && (
         <Alert
+          className={styles.alert}
           appearance='success'
           onClose={() => setShowSuccessAlert(false)}
         >
@@ -82,6 +83,7 @@ const ReviewForm = ({ productId, className }: ReviewFormProps): JSX.Element => {
       )}
       {showErrorAlert && (
         <Alert
+          className={styles.alert}
           appearance='error'
           onClose={() => setShowErrorAlert(false)}
         >

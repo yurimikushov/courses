@@ -28,7 +28,8 @@
 }
 
 .description,
-.submit {
+.submit,
+.alert {
   grid-column: 1 / -1;
 }
 
