@@ -10,9 +10,15 @@ import { ReviewFormProps } from './ReviewForm.props'
 import styles from './ReviewForm.module.css'
 
 const ReviewForm = ({ productId, className }: ReviewFormProps): JSX.Element => {
-  const { register, control, handleSubmit } = useForm<IReviewForm>()
-  const [showSuccessAlert, setShowSuccessAlert] = useState<boolean>(true)
-  const [showErrorAlert, setShowErrorAlert] = useState<boolean>(true)
+  const {
+    register,
+    control,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm<IReviewForm>()
+  const [showSuccessAlert, setShowSuccessAlert] = useState<boolean>(false)
+  const [showErrorAlert, setShowErrorAlert] = useState<boolean>(false)
 
   const onSubmit = async (formData: IReviewForm) => {
     try {
@@ -25,12 +31,13 @@ const ReviewForm = ({ productId, className }: ReviewFormProps): JSX.Element => {
       )
 
       if (status === 201) {
-        console.log('Success')
+        reset()
+        setShowSuccessAlert(true)
       } else {
-        console.error('Error')
+        setShowErrorAlert(true)
       }
     } catch {
-      console.error('Error')
+      setShowErrorAlert(true)
     }
   }
 
@@ -39,10 +46,22 @@ const ReviewForm = ({ productId, className }: ReviewFormProps): JSX.Element => {
       className={cn(className, styles.form)}
       onSubmit={handleSubmit(onSubmit)}
     >
-      <Input className={styles.name} {...register('name')} placeholder='Имя' />
       <Input
-        className={styles.title}
-        {...register('title')}
+        className={cn(styles.name, {
+          [styles.error]: 'name' in errors,
+        })}
+        {...register('name', {
+          required: true,
+        })}
+        placeholder='Имя'
+      />
+      <Input
+        className={cn(styles.title, {
+          [styles.error]: 'title' in errors,
+        })}
+        {...register('title', {
+          required: true,
+        })}
         placeholder='Заголовок отзыва'
       />
       <div className={styles.estimation}>
@@ -51,19 +70,30 @@ const ReviewForm = ({ productId, className }: ReviewFormProps): JSX.Element => {
           name='rating'
           defaultValue={0}
           control={control}
-          render={({ field }) => (
+          rules={{
+            required: true,
+            min: 1,
+          }}
+          render={({ field: { ref, value, onChange } }) => (
             <Rating
-              ref={field.ref}
+              ref={ref}
+              className={cn(styles.rating, {
+                [styles.error]: 'rating' in errors,
+              })}
               editable={true}
-              rating={field.value}
-              setRating={field.onChange}
+              rating={value}
+              setRating={onChange}
             />
           )}
         />
       </div>
       <Textarea
-        className={styles.description}
-        {...register('description')}
+        className={cn(styles.description, {
+          [styles.error]: 'description' in errors,
+        })}
+        {...register('description', {
+          required: true,
+        })}
         placeholder='Текст отзыва'
       />
       <div className={styles.submit}>
