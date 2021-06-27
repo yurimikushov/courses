@@ -1,13 +1,15 @@
+import cn from 'classnames'
 import { SortOptions } from '../../enums'
+import { useSortProducts } from '../../store/hooks'
 import { SortItem } from './SortItem/SortItem'
 import { SortProps } from './Sort.props'
-import { useSortProducts } from '../../store/hooks'
+import styles from './Sort.module.css'
 
 const Sort = ({ className, ...props }: SortProps): JSX.Element => {
   const [sortBy, onSortBy] = useSortProducts()
 
   return (
-    <div className={className} {...props}>
+    <div className={cn(className, styles.sort)} {...props}>
       <SortItem
         title='По рейтингу'
         isActive={sortBy === SortOptions.Rating}
