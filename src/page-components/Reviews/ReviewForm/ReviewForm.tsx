@@ -21,6 +21,9 @@ const ReviewForm = ({ productId, className }: ReviewFormProps): JSX.Element => {
   const [showErrorAlert, setShowErrorAlert] = useState<boolean>(false)
 
   const onSubmit = async (formData: IReviewForm) => {
+    setShowSuccessAlert(false)
+    setShowErrorAlert(false)
+
     try {
       const { status } = await axios.post<IReviewFormResponse>(
         API.review.create,
