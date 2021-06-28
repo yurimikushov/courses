@@ -1,3 +1,4 @@
+import { Up } from '../../components'
 import { LayoutProps } from './Layout.props'
 import { Header } from './Header/Header'
 import { Sidebar } from './Sidebar/Sidebar'
@@ -12,6 +13,7 @@ const Layout = ({ children }: LayoutProps): JSX.Element => (
       {children}
     </main>
     <Footer className={styles.footer} />
+    <Up />
   </div>
 )
 

@@ -1,0 +1,27 @@
+.up {
+  position: fixed;
+  right: 2rem;
+  bottom: 2rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 2.5rem;
+  height: 2.5rem;
+
+  transition: background-color 0.2s;
+
+  border-radius: 0.625rem;
+
+  background-color: var(--color-primary);
+  box-shadow: 0 4px 4px rgb(0 0 0 / 5%);
+}
+
+.up:hover {
+  background-color: var(--color-primary-hover);
+}
+
+.up svg {
+  fill: var(--color-white);
+}
