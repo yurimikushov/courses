@@ -3,9 +3,7 @@
   right: 2rem;
   bottom: 2rem;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: none;
 
   width: 2.5rem;
   height: 2.5rem;
@@ -24,4 +22,10 @@
 
 .up svg {
   fill: var(--color-white);
+}
+
+.displayed {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
