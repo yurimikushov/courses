@@ -1,2 +1,36 @@
 .header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding-right: 1rem;
+  padding-left: 1rem;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 2.5rem;
+  height: 2.5rem;
+
+  cursor: pointer;
+
+  transition: background-color 0.2s, fill 0.2s;
+
+  border: none;
+
+  border-radius: 0.625rem;
+
+  background: var(--color-white);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.05);
+}
+
+.menu:hover {
+  background-color: var(--color-primary);
+}
+
+.menu:hover svg {
+  fill: var(--color-white);
 }
