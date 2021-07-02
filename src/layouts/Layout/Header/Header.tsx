@@ -21,7 +21,7 @@ const Header = ({ className, ...props }: HeaderProps): JSX.Element => {
         className={styles.menu}
         onClick={() => setMenuIsOpened((opened) => !opened)}
       >
-        {menuIsOpened ? <OpenIcon /> : <CloseIcon />}
+        {menuIsOpened ? <CloseIcon /> : <OpenIcon />}
       </button>
     </header>
   )
