@@ -1,3 +1,5 @@
+import { useEffect, useState } from 'react'
+import { useRouter } from 'next/router'
 import Link from 'next/link'
 import cn from 'classnames'
 import { Up } from '../../components'
@@ -7,10 +9,15 @@ import { Header } from './Header/Header'
 import { Sidebar } from './Sidebar/Sidebar'
 import { Footer } from './Footer/Footer'
 import styles from './Layout.module.css'
-import { useState } from 'react'
 
 const Layout = ({ children }: LayoutProps): JSX.Element => {
   const [menuIsOpened, setMenuIsOpened] = useState<boolean>(false)
+
+  const { asPath } = useRouter()
+
+  useEffect(() => {
+    setMenuIsOpened(false)
+  }, [asPath])
 
   const onToggleMenuIsOpened = (): void => {
     setMenuIsOpened((open) => !open)
