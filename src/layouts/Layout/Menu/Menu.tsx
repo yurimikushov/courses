@@ -1,3 +1,4 @@
+import { KeyboardEvent } from 'react'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 import cn from 'classnames'
@@ -64,6 +65,13 @@ const Menu = (): JSX.Element => {
       )
     }
 
+    const openMenuByKey = (e: KeyboardEvent, secondCategory: string): void => {
+      if (e.code === 'Space' || e.code === 'Enter') {
+        e.preventDefault()
+        openMenu(secondCategory)
+      }
+    }
+
     return (
       <ul className={styles.secondLevelMenuBox}>
         {menu.map(({ _id, pages, isOpen }) => {
@@ -74,6 +82,10 @@ const Menu = (): JSX.Element => {
               <div
                 className={styles.secondLevelMenuItem}
                 onClick={() => openMenu(_id.secondCategory)}
+                onKeyDown={(e: KeyboardEvent) =>
+                  openMenuByKey(e, _id.secondCategory)
+                }
+                tabIndex={0}
               >
                 {_id.secondCategory}
               </div>
@@ -103,7 +115,7 @@ const Menu = (): JSX.Element => {
             })}
           >
             <Link href={`/${route}/${alias}`}>
-              <a>{category}</a>
+              <a tabIndex={0}>{category}</a>
             </Link>
           </li>
         ))}
