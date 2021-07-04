@@ -54,8 +54,8 @@
     --z-sidebar: 100;
 
     grid-template-columns: 1fr;
+    grid-template-rows: 1fr auto;
     grid-template-areas:
-      'header'
       'body'
       'footer';
   }
