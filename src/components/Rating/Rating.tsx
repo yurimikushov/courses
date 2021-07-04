@@ -1,4 +1,10 @@
-import { ForwardedRef, forwardRef, useEffect, useState } from 'react'
+import {
+  ForwardedRef,
+  forwardRef,
+  KeyboardEvent,
+  useEffect,
+  useState,
+} from 'react'
 import cn from 'classnames'
 import { dummy } from '../../utils'
 import { RatingProps } from './Rating.props'
@@ -24,6 +30,13 @@ const Rating = forwardRef(
       setSelectedRating(rating)
     }, [rating])
 
+    const setRatingByKey = (e: KeyboardEvent, rating: number): void => {
+      if (e.code === 'Space' || e.code === 'Enter') {
+        e.preventDefault()
+        setRating(rating)
+      }
+    }
+
     return (
       <div ref={ref} className={cn(className, styles.rating)} {...props}>
         {Array<JSX.Element>(STAR_TOTAL)
@@ -38,8 +51,8 @@ const Rating = forwardRef(
               onMouseEnter={() => editable && setSelectedRating(i + 1)}
               onMouseLeave={() => editable && setSelectedRating(rating)}
               onClick={() => editable && setRating(i + 1)}
-              onKeyUp={({ code }) =>
-                editable && code === 'Space' && setRating(i + 1)
+              onKeyDown={(e: KeyboardEvent) =>
+                editable && setRatingByKey(e, i + 1)
               }
             >
               <StarIcon
