@@ -13,9 +13,10 @@ const Search = ({
   const [searchQuery, setSearchQuery] = useState<string>('')
 
   const onSearchHandler = () => onSearch(searchQuery)
-  
-  const onKeyUpHandler = ({ key }: KeyboardEvent<HTMLInputElement>): void => {   
-    if (key === 'Enter') {
+
+  const onSearchByKeyHandler = (e: KeyboardEvent): void => {
+    if (e.code === 'Enter') {
+      e.preventDefault()
       onSearchHandler()
     }
   }
@@ -27,9 +28,9 @@ const Search = ({
           [styles.filled]: searchQuery.length > 0,
         })}
         value={searchQuery}
-        onChange={(e) => setSearchQuery(e.target.value)}
         placeholder='Поиск...'
-        onKeyUp={onKeyUpHandler}
+        onChange={(e) => setSearchQuery(e.target.value)}
+        onKeyDown={onSearchByKeyHandler}
       />
       <Button
         className={styles.button}
