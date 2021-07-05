@@ -3,6 +3,7 @@ import {
   forwardRef,
   KeyboardEvent,
   useEffect,
+  useRef,
   useState,
 } from 'react'
 import cn from 'classnames'
@@ -24,16 +25,27 @@ const Rating = forwardRef(
     }: RatingProps,
     ref: ForwardedRef<HTMLDivElement>
   ): JSX.Element => {
+    const ratingRefs = useRef<(HTMLSpanElement | null)[]>([])
     const [selectedRating, setSelectedRating] = useState<number>(rating)
 
     useEffect(() => {
       setSelectedRating(rating)
     }, [rating])
 
-    const setRatingByKey = (e: KeyboardEvent, rating: number): void => {
+    const onKeyDownHandler = (e: KeyboardEvent, rating: number): void => {
       if (e.code === 'Space' || e.code === 'Enter') {
         e.preventDefault()
         setRating(rating)
+      }
+
+      if (e.code === 'ArrowRight' || e.code === 'ArrowUp') {
+        e.preventDefault()
+        ratingRefs.current[rating]?.focus()
+      }
+
+      if (e.code === 'ArrowLeft' || e.code === 'ArrowDown') {
+        e.preventDefault()
+        ratingRefs.current[rating - 2]?.focus()
       }
     }
 
@@ -44,6 +56,7 @@ const Rating = forwardRef(
           .map((_: JSX.Element, i: number) => (
             <span
               key={i}
+              ref={(ref) => ratingRefs.current.push(ref)}
               className={cn(styles.star, {
                 [styles.editable]: editable,
               })}
@@ -52,7 +65,7 @@ const Rating = forwardRef(
               onMouseLeave={() => editable && setSelectedRating(rating)}
               onClick={() => editable && setRating(i + 1)}
               onKeyDown={(e: KeyboardEvent) =>
-                editable && setRatingByKey(e, i + 1)
+                editable && onKeyDownHandler(e, i + 1)
               }
             >
               <StarIcon
