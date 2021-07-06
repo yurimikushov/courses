@@ -4,15 +4,15 @@ import { SortItemProps } from './SortItem.props'
 import styles from './SortItem.module.css'
 
 const SortItem = ({ title, isActive, onClick }: SortItemProps): JSX.Element => (
-  <div
+  <button
     className={cn(styles.sortOption, {
-      [styles.active]: isActive,
+      [styles.activated]: isActive,
     })}
     onClick={onClick}
   >
     <SortIcon className={styles.sortIcon} />
-    <div className={styles.title}>{title}</div>
-  </div>
+    <div>{title}</div>
+  </button>
 )
 
 export { SortItem }

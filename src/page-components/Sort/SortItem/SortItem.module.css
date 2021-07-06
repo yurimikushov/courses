@@ -1,30 +1,34 @@
 .sortOption {
   display: flex;
-  align-items: center;
+  align-items: baseline;
 
   cursor: pointer;
+
+  border: none;
+  background-color: transparent;
+
+  font-size: 1rem;
+  line-height: 1.375rem;
 }
 
 .sortOption + .sortOption {
   margin-left: 2rem;
 }
 
-.sortIcon {
-  display: none;
-
-  fill: var(--color-primary);
-}
-
-.title {
-  margin-left: 0.5rem;
-}
-
-.active {
+.sortOption.activated {
   color: var(--color-primary);
 
   font-weight: bold;
 }
 
-.active .sortIcon {
+.sortIcon {
+  display: none;
+
+  margin-right: 0.5rem;
+
+  fill: var(--color-primary);
+}
+
+.activated .sortIcon {
   display: initial;
 }
