@@ -11,14 +11,14 @@
 .hh {
   display: grid;
   grid-template-columns: 1fr 3fr;
-  gap: 30px;
+  gap: 1.875rem;
 
   margin-top: 1.5rem;
 }
 
 .vacancies,
 .salaries {
-  padding: 20px;
+  padding: 1.25rem;
 }
 
 .salaries {
@@ -34,7 +34,7 @@
   align-items: center;
   flex-direction: column;
   justify-content: center;
-  gap: 8px;
+  gap: 0.5rem;
 }
 
 .salary:not(:last-child) {
@@ -68,7 +68,7 @@
 
 .rating {
   display: flex;
-  gap: 10px;
+  gap: 0.625rem;
 }
 
 .filledStar circle {
