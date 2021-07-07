@@ -36,6 +36,7 @@ const Search = ({
         className={styles.button}
         appearance='primary'
         onClick={onSearchHandler}
+        aria-label='Поиск по сайту'
       >
         <SearchIcon />
       </Button>
