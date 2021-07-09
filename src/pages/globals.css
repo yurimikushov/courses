@@ -60,6 +60,15 @@ h3 {
   line-height: 1.6875rem;
 }
 
+.hidden {
+  position: absolute;
+
+  overflow: hidden;
+
+  width: 0;
+  height: 0;
+}
+
 @media (max-width: 320px) {
   :root {
     --font-size: 0.85em;
