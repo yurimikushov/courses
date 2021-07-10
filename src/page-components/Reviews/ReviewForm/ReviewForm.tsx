@@ -57,6 +57,7 @@ const ReviewForm = ({ productId, className }: ReviewFormProps): JSX.Element => {
           required: true,
         })}
         placeholder='Имя'
+        aria-invalid={'name' in errors}
       />
       <Input
         className={cn(styles.title, {
@@ -66,6 +67,7 @@ const ReviewForm = ({ productId, className }: ReviewFormProps): JSX.Element => {
           required: true,
         })}
         placeholder='Заголовок отзыва'
+        aria-invalid={'title' in errors}
       />
       <div className={styles.estimation}>
         <span>Оценка:</span>
@@ -86,6 +88,7 @@ const ReviewForm = ({ productId, className }: ReviewFormProps): JSX.Element => {
               editable={true}
               rating={value}
               setRating={onChange}
+              aria-invalid={'rating' in errors}
             />
           )}
         />
@@ -98,6 +101,8 @@ const ReviewForm = ({ productId, className }: ReviewFormProps): JSX.Element => {
           required: true,
         })}
         placeholder='Текст отзыва'
+        aria-label='Текст отзыва'
+        aria-invalid={'description' in errors}
       />
       <div className={styles.submit}>
         <Button appearance='primary'>Отправить</Button>
