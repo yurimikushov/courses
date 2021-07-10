@@ -15,6 +15,7 @@ const Actions = ({
       appearance='ghost'
       arrow={showReviews ? 'down' : 'right'}
       onClick={onToggleShowReviews}
+      aria-expanded={showReviews}
     >
       Читать отзывы
     </Button>
