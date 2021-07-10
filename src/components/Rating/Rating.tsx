@@ -67,6 +67,11 @@ const Rating = forwardRef(
               onKeyDown={(e: KeyboardEvent) =>
                 editable && onKeyDownHandler(e, i + 1)
               }
+              role={editable ? 'slider' : ''}
+              aria-label={editable ? 'Укажите рейтинг' : `Рейтинг ${rating}`}
+              aria-valuenow={rating}
+              aria-valuemin={1}
+              aria-valuemax={STAR_TOTAL}
             >
               <StarIcon
                 className={cn(styles.starIcon, {
