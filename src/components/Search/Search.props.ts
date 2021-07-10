@@ -1,6 +1,6 @@
 import { DetailedHTMLProps, TextareaHTMLAttributes } from 'react'
 
-interface SearchProps extends DetailedHTMLProps<TextareaHTMLAttributes<HTMLDivElement>, HTMLDivElement> {
+interface SearchProps extends DetailedHTMLProps<TextareaHTMLAttributes<HTMLFormElement>, HTMLFormElement> {
   onSearch: (searchQuery: string) => void
 }
 

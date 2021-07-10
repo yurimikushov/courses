@@ -22,7 +22,7 @@ const Search = ({
   }
 
   return (
-    <div className={cn(className, styles.search)} {...props}>
+    <form className={cn(className, styles.search)} {...props} role='search'>
       <Input
         className={cn(styles.input, {
           [styles.filled]: searchQuery.length > 0,
@@ -40,7 +40,7 @@ const Search = ({
       >
         <SearchIcon />
       </Button>
-    </div>
+    </form>
   )
 }
 
