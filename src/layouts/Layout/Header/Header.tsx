@@ -1,6 +1,5 @@
-import Link from 'next/link'
 import cn from 'classnames'
-import Logo from '../Logo.svg'
+import { Logo } from '../Logo/Logo'
 import OpenIcon from './assets/open.svg'
 import CloseIcon from './assets/close.svg'
 import { HeaderProps } from './Header.props'
@@ -14,11 +13,7 @@ const Header = ({
 }: HeaderProps): JSX.Element => {
   return (
     <header className={cn(className, styles.header)} {...props}>
-      <Link href='/'>
-        <a>
-          <Logo />
-        </a>
-      </Link>
+      <Logo />
       <button className={styles.menu} onClick={() => onToggleMenu()}>
         {menuIsOpened ? <CloseIcon /> : <OpenIcon />}
       </button>

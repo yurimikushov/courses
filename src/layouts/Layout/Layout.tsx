@@ -1,11 +1,10 @@
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
-import Link from 'next/link'
 import cn from 'classnames'
 import { Up } from '../../components'
 import { useScrollY } from '../../hooks'
-import Logo from './Logo.svg'
 import { LayoutProps } from './Layout.props'
+import { Logo } from './Logo/Logo'
 import { Header } from './Header/Header'
 import { Sidebar } from './Sidebar/Sidebar'
 import { Footer } from './Footer/Footer'
@@ -36,13 +35,7 @@ const Layout = ({ children }: LayoutProps): JSX.Element => {
         menuIsOpened={menuIsOpened}
         onToggleMenu={onToggleMenuIsOpened}
       />
-      <div className={styles.logo}>
-        <Link href='/'>
-          <a>
-            <Logo />
-          </a>
-        </Link>
-      </div>
+      <Logo className={styles.logo} />
       <Sidebar
         className={cn(styles.sidebar, {
           [styles.isOpened]: menuIsOpened,
