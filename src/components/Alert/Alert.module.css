@@ -19,6 +19,9 @@
   right: 1.25rem;
 
   cursor: pointer;
+
+  border: none;
+  background-color: transparent;
 }
 
 .alert.success svg path {

@@ -116,7 +116,7 @@ const ReviewForm = ({ productId, className }: ReviewFormProps): JSX.Element => {
           appearance='success'
           onClose={() => setShowSuccessAlert(false)}
         >
-          Спасибо, ваш отзыв будет опубликован после проверки
+          Спасибо, ваш отзыв будет опубликован после проверки.
         </Alert>
       )}
       {showErrorAlert && (
@@ -125,7 +125,7 @@ const ReviewForm = ({ productId, className }: ReviewFormProps): JSX.Element => {
           appearance='error'
           onClose={() => setShowErrorAlert(false)}
         >
-          Что-то пошло не так, попробуйте обновить страницу
+          Что-то пошло не так, попробуйте обновить страницу.
         </Alert>
       )}
     </form>

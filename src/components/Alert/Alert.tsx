@@ -16,9 +16,12 @@ const Alert = ({
       [styles.error]: appearance === 'error',
     })}
     {...props}
+    role='alert'
   >
     {children}
-    <CloseIcon className={styles.close} onClick={onClose} />
+    <button className={styles.close} onClick={onClose}>
+      <CloseIcon aria-label='Закрыть оповещение.' />
+    </button>
   </div>
 )
 
