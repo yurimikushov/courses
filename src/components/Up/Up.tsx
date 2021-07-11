@@ -37,8 +37,8 @@ const Up = (): JSX.Element => {
       initial={needToShow ? 'visible' : 'hidden'}
       animate={needToShow ? 'visible' : 'hidden'}
     >
-      <UpIcon />
-    </motion.div>
+      <UpIcon aria-label='Наверх' />
+    </motion.div> 
   )
 }
 
