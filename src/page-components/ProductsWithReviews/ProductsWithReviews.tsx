@@ -6,9 +6,14 @@ const ProductsWithReviews = ({
   className,
   ...props
 }: ProductsWithReviewsProps): JSX.Element => (
-  <div className={className} {...props}>
+  <div className={className} {...props} role='list'>
     {products.map((product) => (
-      <ProductWithReviews key={product._id} product={product} layout />
+      <ProductWithReviews
+        key={product._id}
+        product={product}
+        layout
+        role='listitem'
+      />
     ))}
   </div>
 )
