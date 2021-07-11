@@ -1,4 +1,5 @@
 import { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from 'next'
+import Head from 'next/head'
 import { ParsedUrlQuery } from 'querystring'
 import { fetchMenu, fetchPageByAlias, fetchProducts } from '../../api'
 import {
@@ -33,6 +34,13 @@ const TopPage = ({ page }: TopPageProps): JSX.Element => {
 
   return (
     <>
+      <Head>
+        <title>{page.metaTitle}</title>
+        <meta name='description' content={page.metaDescription} />
+        <meta property='og:title' content={page.metaTitle} />
+        <meta property='og:description' content={page.metaDescription} />
+        <meta property='og:type' content='article' />
+      </Head>
       <TopPageHeader title={title} totalProducts={products.length} />
       {products.length > 0 && <Sort />}
       {products.length > 0 && <ProductsWithReviews products={products} />}
