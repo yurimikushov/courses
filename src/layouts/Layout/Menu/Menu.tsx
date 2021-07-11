@@ -23,7 +23,7 @@ const Menu = (): JSX.Element => {
   const FirstLevelMenu = (): JSX.Element => (
     <ul>
       {firstLevelMenuItems.map(({ id, name, route, Icon }) => (
-        <li key={id}>
+        <li key={id} aria-expanded={id === activeFirstLevelMenu}>
           <Link href={`/${route}`}>
             <a>
               <div
@@ -78,7 +78,7 @@ const Menu = (): JSX.Element => {
           isOpen = isOpen || isCurrentPage(query.alias as string, pages)
 
           return (
-            <li key={_id.secondCategory}>
+            <li key={_id.secondCategory} aria-expanded={isOpen}>
               <div
                 className={styles.secondLevelMenuItem}
                 onClick={() => openMenu(_id.secondCategory)}
