@@ -16,6 +16,7 @@ import { IMenuItem, ITopPage, IProduct } from '../../interfaces'
 import { withLayout } from '../../layouts'
 import { useSortedProducts } from '../../store/hooks'
 import { cleanUpPageData, resolveProductsImages } from '../../utils'
+import { Error404 } from '../404'
 
 interface TopPageProps extends Record<string, unknown> {
   menu: IMenuItem[]
@@ -27,7 +28,7 @@ const TopPage = ({ page }: TopPageProps): JSX.Element => {
   const products: IProduct[] = useSortedProducts()
 
   if (!page) {
-    return <></>
+    return <Error404 />
   }
 
   const { title, category, hh, advantages, seoText, tags } = page
