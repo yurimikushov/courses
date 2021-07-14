@@ -1,8 +1,8 @@
 # Courses
 
-This app allows you find an IT-course and see an info about it.
+> Note: this is an unfinished app. Here I learned and practiced a features of the `TypeScript`, `NextJS`, `Framer-motion` animation lib.
 
-This is a pet-project, here I learned SSR running on NextJS.
+This app displays IT-course list and allows you to see an info about them.
 
 The app is based on this [Figma layout](https://www.figma.com/file/eHIyKZXUUtMf1BQiuv6tTA/Курс-2---NextJS?node-id=0%3A1). 
 
